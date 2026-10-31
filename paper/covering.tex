@@ -1,0 +1,69 @@
+\section{From two estimates to the transport law}\label{sec:covering}
+
+The upper bounds of this paper have one architecture. Two estimates about a single operator suffice, and the rest of the argument is a covering of all large times. This section states the two estimates and proves the covering. Section~\ref{sec:typeI} establishes them for supercritical type~I potentials, Section~\ref{sec:moments} for packets filtered in energy, and Section~\ref{sec:beyond} under a separation hypothesis.
+
+Throughout this section $H=H_{v,\alpha,\theta}$ has a bounded real sampling function $v$, a fixed irrational frequency $\alpha$ with $\beta(\alpha)<\infty$, and a fixed phase $\theta$. The initial state $\psi$ is a fixed unit vector with finite moments, and we write $P=P_\psi$. Let $\ell>0$.
+
+\begin{definition}\label{def:M}
+We say that $H$ and $\psi$ satisfy:
+\begin{itemize}
+\item[(M1)] if there are $C_D\ge1$ and $\kappa>0$, and for every $M>0$ a constant $C_M$, such that for all sufficiently large $n$, every $T\ge1$ and every $N\ge C_Dq_n$,
+\[
+P(N,T)\le C_MN^{-M}+C_MT^3e^{-\kappa q_n};
+\]
+\item[(M2$_\ell$)] if for every fixed $c>0$, $0<d<B$, $\eps>0$ and $m>0$ there are $C$ and $n_0$ such that for every $n\ge n_0$ with $b_n\ge c$ and every $T$ with $e^{dq_n}\le T\le e^{Bq_n}$,
+\[
+P\bigl(R_n(T),T\bigr)\le CT^{-m},\qquad R_n(T)=e^{\eps q_n}\Bigl[1+\min\bigl(Te^{-\ell q_n},\,e^{(b_n-\ell)_+q_n}\bigr)\Bigr].
+\]
+\end{itemize}
+\end{definition}
+
+(M1) is a confinement estimate at every denominator. It confines the packet to distance $O(q_n)$ until times $e^{\kappa q_n/3}$, whatever the next denominator is. (M2$_\ell$) describes the motion at a scale with a definite Liouville ratio $b_n\ge c$. Up to the factor $e^{\eps q_n}$, the packet moves with speed $e^{-\ell q_n}$ and stops at the radius $e^{(b_n-\ell)_+q_n}$. In (M2$_\ell$), $n_0$ may depend on the phase. For $\psi=\delta_0$ the per-denominator estimate of Section~\ref{sec:typeI} has the stronger form $P(N,T)\le Ce^{-c_DN}+CT^3e^{-\kappa q_n}$, which implies (M1).
+
+\subsection{Windows at scales with a definite ratio}
+
+\begin{proposition}\label{prop:selected}
+Assume (M2$_\ell$). Let $0<a<1$, $m>0$, $c>0$ and $0<d<B$, and let $B_0>\beta(\alpha)$ satisfy $f_0:=\max\{0,1-\ell/B_0\}<a$. There are $C$ and $n_0$ such that for every $n\ge n_0$ with $b_n\ge c$ and every $T$ with $e^{dq_n}\le T\le e^{Bq_n}$,
+\[
+P(T^a,T)\le CT^{-m}.
+\]
+\end{proposition}
+
+\begin{proof}
+Choose $\eps>0$ with $\eps/d<(a-f_0)/2$, and apply (M2$_\ell$) with these $c,d,B,\eps,m$. Since $\limsup b_n=\beta(\alpha)<B_0$, we may also assume $b_n\le B_0$ for $n\ge n_0$. Write $q=q_n$, $b=b_n$ and $\tau=\log T/q\in[d,B]$. Then
+\[
+\frac{\log R_n(T)}{\log T}\le\frac{\eps}{d}+\frac{\log2}{dq}+\frac{\max\{0,\min(\tau-\ell,\,(b-\ell)_+)\}}{\tau}.
+\]
+The last term is at most $f_0$. If $b\le\ell$ it vanishes. If $b>\ell$ it equals $0$ for $\tau\le\ell$, equals $1-\ell/\tau\le1-\ell/b$ for $\ell<\tau\le b$, and equals $(b-\ell)/\tau\le1-\ell/b$ for $\tau\ge b$; and $1-\ell/b\le1-\ell/B_0$. Hence $\log R_n(T)/\log T<(a+f_0)/2+o(1)<a$ for large $n$, so $R_n(T)\le T^a$ and $P(T^a,T)\le P(R_n(T),T)\le CT^{-m}$.
+\end{proof}
+
+\subsection{Covering every time}
+
+\begin{theorem}[Covering]\label{thm:covering}
+Assume (M1) and (M2$_\ell$), and $\beta(\alpha)<\infty$. For every $a>\max\{0,1-\ell/\beta(\alpha)\}$ and every $m>0$, $P(T^a,T)=O(T^{-m})$ as $T\to\infty$. Consequently
+\[
+\alpha^+_{u,\psi}(H)\le\max\Bigl\{0,\ 1-\frac{\ell}{\beta(\alpha)}\Bigr\}.
+\]
+If $\beta(\alpha)=0$, the same conclusion holds assuming (M1) alone.
+\end{theorem}
+
+\begin{proof}
+It suffices to treat $a<1$; for $a\ge1$ use monotonicity of $P(\cdot,T)$ and some $a'\in(\max\{0,1-\ell/\beta\},1)$. Let $C_D,\kappa$ be as in (M1). Fix $K\ge1$ with $\kappa K>m+3$, and put $d=1/K$ and $c=a/(2K)$. Fix $B_0>\beta(\alpha)$ with $\max\{0,1-\ell/B_0\}<a$, and put $B=\max\{2B_0/a,2d\}$. Let $C$ and $n_0$ be given by Proposition~\ref{prop:selected}.
+
+For large $T$ let $j$ be the least index with $q_j\ge K\log T$. Two cases exhaust all possibilities.
+
+\emph{Case A: $q_j\le T^a/(2C_D)$.} Let $N=\lfloor T^a\rfloor$, so $N\ge T^a/2\ge C_Dq_j$ for large $T$. By (M1) with $M=2m/a$,
+\[
+P(T^a,T)\le P(N,T)\le C_M2^MT^{-aM}+C_MT^3e^{-\kappa q_j}\le C_M2^MT^{-2m}+C_MT^{3-\kappa K}=O(T^{-m}).
+\]
+
+\emph{Case B: $q_j>T^a/(2C_D)$.} Let $q=q_{j-1}$. By the choice of $j$, $q<K\log T$, so $\tau=\log T/q>d$. By~\eqref{eq:bn}, $q_j<D_{j-1}=e^{b_{j-1}q}$, so
+\[
+a\log T-\log(2C_D)<\log q_j<b_{j-1}q.
+\]
+Along a sequence of times in this case, $q_j\to\infty$, hence $j\to\infty$ and $q\to\infty$. Dividing by $q<K\log T$ gives $b_{j-1}>a/K-\log(2C_D)/q\ge a/(2K)=c$ for large $T$. Also $b_{j-1}\le B_0$ for large $j$, so $\tau<(B_0+\log(2C_D)/q)/a\le B$. Thus $T\in[e^{dq},e^{Bq}]$ and $b_{j-1}\ge c$, and Proposition~\ref{prop:selected} gives $P(T^a,T)\le CT^{-m}$ once $j-1\ge n_0$.
+
+If $\beta(\alpha)=0$, then $b_n\to0$, so Case~B cannot occur for large $T$ and (M2$_\ell$) is never used. The bound on $\alpha^+_{u,\psi}$ follows from Lemma~\ref{lem:moments}(3), letting $a$ decrease to $\max\{0,1-\ell/\beta\}$.
+\end{proof}
+
+The covering uses no information about the scales between $q_{j-1}$ and $q_j$ other than the two displayed inequalities. In particular it allows $\liminf_n\beta_n=0$. Case~A uses no information about the phase.

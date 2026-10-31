@@ -1,0 +1,171 @@
+\section{Preliminaries}\label{sec:prelim}
+
+\subsection{Notation}
+
+Throughout, $v:\T\to\R$ is continuous, and $H=H_{v,\alpha,\theta}$ is the operator~\eqref{eq:qp}. When $v$ is Lipschitz we write $\Lip(v)$ for its Lipschitz constant. We write $S$ for the shift $(Su)(n)=u(n+1)$, $X$ for the position operator $X\delta_j=j\delta_j$, and $\un_A$ for multiplication by the indicator of $A\subset\Z$. For a rational frequency $p/q$ we use $H_{v,p/q,\varphi}$ in the same way. The spectrum $\Sigma$ of $H_{v,\alpha,\theta}$ does not depend on $\theta$ when $\alpha$ is irrational, since lattice translations conjugate $H_{v,\alpha,\theta}$ to $H_{v,\alpha,\theta+k\alpha}$, the orbit $\theta+k\alpha$ is dense, and the operator depends norm-continuously on the phase.
+
+\emph{Transfer matrices.} For $E\in\C$ and $x\in\T$ put $T(E,x)=\begin{pmatrix}E-v(x)&-1\\1&0\end{pmatrix}$ and, for $r\ge0$,
+\[
+A_r(E,x)=T(E,x+(r-1)\alpha)\cdots T(E,x),\qquad A_0=I.
+\]
+A solution of $Hu=Eu$ satisfies $(u(r),u(r-1))^{\mathsf T}=A_r(E,\theta)(u(0),u(-1))^{\mathsf T}$. For a rational frequency $p/q$ we write $A^{(p/q)}_r$ for the same products with $\alpha$ replaced by $p/q$. The Lyapunov exponent is
+\[
+L(E)=\lim_{r\to\infty}\frac1r\int_\T\log\|A_r(E,x)\|\,dx=\inf_{r\ge1}\frac1r\int_\T\log\|A_r(E,x)\|\,dx .
+\]
+As an infimum of continuous functions of $E$, it is upper semicontinuous. For real-analytic $v$ it is continuous in $E$~\cite[Theorem~1]{BourgainJitomirskaya2002}.
+
+\emph{Continued fractions.} Let $p_n/q_n$ be the convergents of $\alpha$ and put
+\[
+\delta_n=q_n\alpha-p_n,\qquad D_n=|\delta_n|^{-1},\qquad \beta_n=\frac{\log q_{n+1}}{q_n},\qquad b_n=\frac{\log D_n}{q_n}.
+\]
+The classical inequalities $(q_{n+1}+q_n)^{-1}<|\delta_n|<q_{n+1}^{-1}$ give
+\begin{equation}\label{eq:bn}
+q_{n+1}<D_n<2q_{n+1},\qquad 0<b_n-\beta_n<\frac{\log2}{q_n}.
+\end{equation}
+In particular $\limsup b_n=\limsup\beta_n=\beta(\alpha)$. Denominators grow at least like Fibonacci numbers, and $|\alpha-p_n/q_n|=|\delta_n|/q_n<q_n^{-2}$. When the scale $n$ is fixed we drop the index and write $q,p,\delta,D,b$.
+
+\emph{Transport for a general initial state.} For a vector $\psi\in\ell^2(\Z)$ put $\psi_t=e^{-itH}\psi$ and define $a_\psi(j,T)$, $P_\psi(N,T)$ and $M_{p,\psi}(T)$ as in~\eqref{eq:abel} with $\psi_t$ in place of $e^{-itH}\delta_0$. For $\psi\ne0$ the exponents $\beta^+_\psi(p)$ and $\alpha^+_{u,\psi}$ are defined as in~\eqref{eq:exponents}; they do not change when $\psi$ is multiplied by a nonzero constant. We say that $\psi$ has \emph{finite moments} if $\sum_j|j|^p|\psi(j)|^2<\infty$ for every $p>0$. When $\psi=\delta_0$ we drop the index. We write $\mu_\psi$ for the spectral measure of $\psi$ and $\mu_\theta=\mu_{\delta_0}$ for that of $\delta_0$ and $H_{v,\alpha,\theta}$.
+
+\begin{lemma}[Parseval]\label{lem:parseval}
+Let $\psi\in\ell^2(\Z)$, $T>0$, and write $G_\psi(n;z)=\langle\delta_n,(H-z)^{-1}\psi\rangle$. Then
+\[
+a_\psi(n,T)=\frac1{\pi T}\int_\R\bigl|G_\psi(n;E+i/T)\bigr|^2\,dE .
+\]
+Moreover $\sum_n|G_\psi(n;z)|^2=\operatorname{Im}\langle\psi,(H-z)^{-1}\psi\rangle/\operatorname{Im}z$ for $\operatorname{Im}z>0$, and for every bounded Borel function $f$,
+\[
+\frac1{\pi T}\int_\R f(E)\,\bigl\|(H-E-i/T)^{-1}\psi\bigr\|^2\,dE=\int_\R(\mathcal P_{1/T}*f)\,d\mu_\psi,\qquad \mathcal P_\epsilon(x)=\frac{\epsilon}{\pi(x^2+\epsilon^2)} .
+\]
+\end{lemma}
+
+\begin{proof}
+Let $\phi(t)=e^{-t/T}\langle\delta_n,\psi_t\rangle$ for $t\ge0$ and $\phi(t)=0$ for $t<0$. Its Fourier transform is $\int_0^\infty e^{iEt}\phi(t)\,dt=\langle\delta_n,\int_0^\infty e^{-it(H-E-i/T)}dt\,\psi\rangle=-iG_\psi(n;E+i/T)$. Plancherel's theorem gives $\int_\R|\phi|^2dt=(2\pi)^{-1}\int_\R|G_\psi(n;E+i/T)|^2dE$, and $a_\psi(n,T)=(2/T)\int|\phi|^2dt$. The second statement is the spectral theorem: both sides equal $\int|x-z|^{-2}d\mu_\psi(x)$. For the third, $\pi^{-1}T^{-1}|x-E-i/T|^{-2}=\mathcal P_{1/T}(x-E)$; integrate against $f(E)\,dE$ and $d\mu_\psi(x)$ and use Fubini's theorem.
+\end{proof}
+
+This is the Abel form of the Parseval formula used by Damanik and Tcheremchantsev~\cite{DT2007}.
+
+\subsection{The phase set}
+
+For an irrational $\alpha$ put
+\begin{equation}\label{eq:Ga}
+\Ga=\bigl\{\theta\in\T:\ |\sin(2\pi q_n\theta)|\ge q_n^{-2}\ \text{for all sufficiently large }n\bigr\},
+\end{equation}
+and for $\theta\in\Ga$ let $n_G(\theta)$ be an index from which on this holds.
+
+\begin{lemma}\label{lem:Ga}
+For every irrational $\alpha$ the set $\Ga$ has full Lebesgue measure.
+\end{lemma}
+
+\begin{proof}
+The map $\theta\mapsto q_n\theta$ preserves Lebesgue measure on $\T$, and $\{x\in\T:|\sin 2\pi x|<u\}$ has measure at most $u$. Hence $\{\theta:|\sin 2\pi q_n\theta|<q_n^{-2}\}$ has measure at most $q_n^{-2}$. Since $\sum_nq_n^{-2}<\infty$, the Borel--Cantelli lemma shows that almost every $\theta$ lies in only finitely many of these sets.
+\end{proof}
+
+\subsection{Moments}
+
+\begin{lemma}\label{lem:moments}
+Let $\psi$ be a unit vector with finite moments, and let $H$ have a bounded real potential.
+\begin{enumerate}
+\item For every $p>0$ there is $C_{p,\psi}$, depending only on $p$ and on finitely many moments of $\psi$, such that $M_{p,\psi}(T)\le C_{p,\psi}(1+T)^p$ for all $T>0$.
+\item For $0<a<1$ and $T\ge1$, $M_{p,\psi}(T)\le T^{ap}+\bigl(M_{2p,\psi}(T)\,P_\psi(T^a,T)\bigr)^{1/2}$.
+\item If $0<a<1$ and $P_\psi(T^a,T)=O(T^{-m})$ for every $m>0$, then $\alpha^+_{u,\psi}\le a$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+1. Let $k\ge1$ be an integer. We have $[X,H]=S^{-1}-S$ and $[X^k,H]=\sum_{i=0}^{k-1}X^{i}[X,H]X^{k-1-i}$. Moving the shifts to the left with $c(X)S^{\pm1}=S^{\pm1}c(X\mp1)$ writes $[X^k,H]$ as $\sum_{\pm}S^{\pm1}c_\pm(X)$, where $c_\pm$ are polynomials of degree at most $k-1$ with coefficients bounded by a constant depending only on $k$. Hence $\|[X^k,H]\phi\|\le C_k\sum_{j<k}\|X^j\phi\|$. Duhamel's formula $X^k\psi_t=e^{-itH}X^k\psi-i\int_0^te^{-i(t-s)H}[X^k,H]\psi_s\,ds$, justified by truncating $X$ to bounded sets, and induction on $k$ give $\|X^k\psi_t\|\le C_{k,\psi}(1+|t|)^k$. For real $p>0$ choose an integer $k$ with $2k\ge p$. Jensen's inequality for the probability distribution $|\psi_t(j)|^2$ gives
+\[
+\sum_j|j|^p|\psi_t(j)|^2\le\Bigl(\sum_j|j|^{2k}|\psi_t(j)|^2\Bigr)^{p/(2k)}=\|X^k\psi_t\|^{p/k}\le C(1+|t|)^p.
+\]
+Averaging against $(2/T)e^{-2t/T}$ proves the claim.
+
+2. Split $M_{p,\psi}(T)$ into $|j|\le T^a$ and $|j|>T^a$. The first part is at most $T^{ap}$, because $\sum_ja_\psi(j,T)=1$. Apply the Cauchy--Schwarz inequality to the second part, for the probability measure $a_\psi(\cdot,T)$ on $\Z$.
+
+3. By parts 1 and 2, $M_{p,\psi}(T)\le T^{ap}+C(1+T)^{p}T^{-m/2}$. Taking $m\ge2p$ gives $M_{p,\psi}(T)\le CT^{ap}$, so $\beta^+_\psi(p)\le a$ for every $p$.
+\end{proof}
+
+\subsection{Uniform growth and rational products}
+
+\begin{lemma}\label{lem:growth}
+Let $K\subset\R$ be compact and $h>\max_KL$. There are a bounded open set $U\supset K$ and a constant $C$ such that
+\[
+\|A_r(E,x)\|\le Ce^{hr}\qquad\text{for all real }E\in U,\ x\in\T,\ r\ge0.
+\]
+\end{lemma}
+
+The maximum exists because $L$ is upper semicontinuous.
+
+\begin{proof}
+Fix $E_0\in K$ and $h_1=(\max_KL+h)/2$. Since $L(E_0)<h_1$, there is $r_0$ with
+\[
+\frac1{r_0}\int_\T\log\|A_{r_0}(E_0,x)\|\,dx<h_1.
+\]
+The function $F_E(x)=\log\|A_{r_0}(E,x)\|$ is jointly continuous, so the same strict inequality holds for $E$ in a compact neighborhood $N_0$ of $E_0$. Rotation by $r_0\alpha$ is uniquely ergodic, so Birkhoff averages of the continuous functions $F_E$ converge to $\int F_E$ uniformly in $x$; by equicontinuity of $\{F_E\}_{E\in N_0}$ they converge uniformly in $E\in N_0$ as well. Hence there is $m_0$ with $\sum_{k<m}F_E(x+kr_0\alpha)\le mr_0h$ for all $m\ge m_0$, $x\in\T$ and $E\in N_0$. Writing a product of length $r=mr_0+s$ with $0\le s<r_0$ as $m$ blocks of length $r_0$ and a remainder, submultiplicativity gives $\|A_r(E,x)\|\le C e^{hr}$ on $N_0$. A finite cover of the compact set $K$ by the interiors of such neighborhoods gives $U$ and $C$.
+\end{proof}
+
+For a convergent $p/q$ and a phase $\varphi$, the \emph{rational discriminant} is $\Delta_\varphi(E)=\tr A^{(p/q)}_q(E,\varphi)$, the discriminant of the $q$-periodic operator $H_{v,p/q,\varphi}$. Its spectrum is $\{E:|\Delta_\varphi(E)|\le2\}$. The shift $\varphi\mapsto\varphi+p/q$ permutes the $q$ factors of $A^{(p/q)}_q$ cyclically and leaves the trace unchanged. Since $\gcd(p,q)=1$, $\Delta_\varphi$ is invariant under $\varphi\mapsto\varphi+1/q$.
+
+\begin{lemma}[Rational products]\label{lem:ratprod}
+Let $v$ be Lipschitz, and let $U$, $h$ and $C$ be as in Lemma~\ref{lem:growth}. There is $C'$ such that for every convergent $p/q$ of $\alpha$, every real $E\in U$ and all phases $x,\varphi,\varphi'$:
+\begin{enumerate}
+\item $\|A^{(p/q)}_r(E,x)\|\le C'e^{hr}$ for $0\le r\le q$;
+\item $|\partial^r_E\Delta_\varphi(E)|\le 2C'^{r+1}q^re^{hq}$ for every integer $r\ge1$, and
+\[
+|\Delta_\varphi(E)-\Delta_{\varphi'}(E)|\le 2C'^2\Lip(v)\,q\,e^{hq}|\varphi-\varphi'|;
+\]
+\item $\|A_q(E,x)-A^{(p/q)}_q(E,x)\|\le C'^2\Lip(v)\,q\,e^{hq}|\delta|$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+1. For $0\le k<q$ the potentials $v(x+kp/q)$ and $v(x+k\alpha)$ differ by at most $d:=\Lip(v)\,k|\alpha-p/q|\le\Lip(v)|\delta|$. Write each rational factor as the irrational one plus an error of norm at most $d$, and expand the product of $r\le q$ factors. A term with $j$ errors contains at most $j+1$ maximal irrational segments, each bounded by Lemma~\ref{lem:growth}. Hence
+\[
+\|A^{(p/q)}_r(E,x)\|\le\sum_{j=0}^r\binom rj C^{j+1}e^{h(r-j)}d^j=Ce^{hr}\bigl(1+Cde^{-h}\bigr)^r\le Ce^{hr}e^{C\Lip(v)e^{-h}},
+\]
+because $rd\le q\Lip(v)|\delta|\le\Lip(v)$.
+
+2. Each factor is affine in $E$ with derivative $\bigl(\begin{smallmatrix}1&0\\0&0\end{smallmatrix}\bigr)$. Differentiating the product $r$ times inserts this matrix at $r$ distinct positions; there are at most $q^r$ ordered choices, and each resulting product consists of at most $r+1$ rational segments of total length at most $q$, so it is bounded by $C'^{r+1}e^{hq}$ by part~1. The trace is at most twice the norm. For the phase, telescope the difference of the two products: the term with index $k$ is a product of two rational segments of total length $q-1$ and a one-step difference of norm at most $\Lip(v)|\varphi-\varphi'|$.
+
+3. Telescope as in part~2. The one-step differences are at most $\Lip(v)|\delta|$ by part~1, and the segments are bounded by Lemma~\ref{lem:growth} and part~1.
+\end{proof}
+
+\subsection{Rational spectra}
+
+For a rational $p/q$ in lowest terms let $\Sigma_{p/q}=\bigcup_{\varphi\in\T}\sigma(H_{v,p/q,\varphi})$.
+
+\begin{lemma}\label{lem:window}
+Let $H_0$ be a bounded Schr\"odinger operator on $\ell^2(\Z)$ with hopping one and real potential, and let $E\in\sigma(H_0)$. For every integer $M\ge1$ there is a unit vector $u$ supported in an interval of length $2M$ with $\|(H_0-E)u\|\le 8/M$.
+\end{lemma}
+
+\begin{proof}
+By Weyl's criterion there is a finitely supported vector $w$ with $\|(H_0-E)w\|\le M^{-1}\|w\|$. For $k\in\Z$ let $\chi_k(n)=\sin\bigl(\pi(n-kM)/(2M)\bigr)$ for $kM\le n\le (k+2)M$ and $\chi_k(n)=0$ otherwise. Then $\sum_k\chi_k(n)^2=1$, because on $[kM,(k+1)M]$ the two windows $\chi_k$ and $\chi_{k-1}$ are a sine and a cosine of the same angle. Also $|\chi_k(n+1)-\chi_k(n)|\le\pi/(2M)$, and for each $n$ at most three indices $k$ have $\chi_k(n)$ or $\chi_k(n+1)$ nonzero. Since $([S,\chi_k]w)(n)=(\chi_k(n+1)-\chi_k(n))w(n+1)$, this gives $\sum_k\|[S^{\pm1},\chi_k]w\|^2\le 3\pi^2(4M^2)^{-1}\|w\|^2$. Hence $\sum_k\|\chi_kw\|^2=\|w\|^2$ and
+\[
+\sum_k\|(H_0-E)\chi_kw\|^2\le2\sum_k\|\chi_k(H_0-E)w\|^2+2\sum_k\|[H_0,\chi_k]w\|^2\le\frac{2+6\pi^2}{M^2}\,\|w\|^2.
+\]
+Some $k$ therefore has $\|(H_0-E)\chi_kw\|\le (8/M)\|\chi_kw\|$.
+\end{proof}
+
+\begin{lemma}\label{lem:ratspec}
+Let $v$ be Lipschitz. There is $C$ such that for every rational $p/q$:
+\begin{enumerate}
+\item every point of $\Sigma_{p/q}$ is within $C|\alpha-p/q|^{1/2}$ of $\Sigma$, and every point of $\Sigma$ is within $C|\alpha-p/q|^{1/2}$ of $\Sigma_{p/q}$;
+\item for every $\varphi$, every point of $\Sigma_{p/q}$ is within $\Lip(v)/(2q)$ of $\sigma(H_{v,p/q,\varphi})$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+1. Let $E\in\sigma(H_{v,p/q,\varphi})$ and take $u$ from Lemma~\ref{lem:window}, supported in $[c-M,c+M]$. Choose $\theta'$ with $\theta'+c\alpha=\varphi+cp/q$. For $|n-c|\le M$ the potentials of $H_{v,\alpha,\theta'}$ and $H_{v,p/q,\varphi}$ differ by at most $\Lip(v)M|\alpha-p/q|$. Hence $\dist(E,\Sigma)\le 8/M+\Lip(v)M|\alpha-p/q|$, and $M=\lceil|\alpha-p/q|^{-1/2}\rceil$ gives the first claim. The second claim is proved in the same way with the roles exchanged.
+
+2. Translation by $k$ sites conjugates $H_{v,p/q,\varphi}$ to $H_{v,p/q,\varphi+kp/q}$, and $\{kp/q\}$ is the full grid $q^{-1}\Z/\Z$. Every phase $\varphi'$ is within $1/(2q)$ of a grid translate of $\varphi$, and the potential is $\Lip(v)$-Lipschitz in the phase.
+\end{proof}
+
+\subsection{Quasi-locality}
+
+\begin{lemma}\label{lem:QL}
+Let $H_0$ be a bounded Schr\"odinger operator on $\ell^2(\Z)$ with hopping one and real potential, let $R>0$, and let $g\in C^\infty(\R)$ be supported in $[-R,R]$. For every integer $M\ge0$ there is $C_{M,R}$, independent of $H_0$, such that
+\[
+\|\ad_X^M(g(H_0))\|\le C_{M,R}\|g\|_{C^{M+2}},\qquad |\langle\delta_j,g(H_0)\delta_k\rangle|\le C_{M,R}\|g\|_{C^{M+2}}\,|j-k|^{-M}\quad(j\ne k).
+\]
+\end{lemma}
+
+\begin{proof}
+Write $g(H_0)=(2\pi)^{-1}\int\hat g(t)e^{itH_0}\,dt$ and $H_u=e^{iuX}H_0e^{-iuX}$, which replaces $S^{\pm1}$ by $e^{\mp iu}S^{\pm1}$. Then $\ad_X^M(e^{itH_0})=(-i\partial_u)^Me^{itH_u}|_{u=0}$, and all $u$-derivatives of $H_u$ have norm at most $2$. Repeated Duhamel expansion gives $\|\ad_X^M(e^{itH_0})\|\le C_M(1+|t|)^M$. Hence $\|\ad^M_X(g(H_0))\|\le C_M\int(1+|t|)^M|\hat g(t)|\,dt\le C_{M,R}\|g\|_{C^{M+2}}$. The second bound follows from $\langle\delta_j,\ad_X^M(Y)\delta_k\rangle=(j-k)^M\langle\delta_j,Y\delta_k\rangle$.
+\end{proof}

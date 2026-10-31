@@ -1,0 +1,424 @@
+\section{Every moment and local dimensions}\label{sec:moments}
+
+Theorem~\ref{thm:A} concerns the farthest polynomial tails. The construction of Section~\ref{sec:lower} moves only a polynomially small part of the packet, which says nothing about a fixed moment. This section shows that a fixed fraction of the packet reaches the critical distance at resonant times, which controls every moment, and it resolves both the transport and the spectral measure energy by energy. Three ingredients enter. An arcsine law says that, at resonant scales, the rational discriminant evaluated along the spectral measure is distributed like the discriminant of a periodic operator. An elliptic-run estimate says that, at an energy where the local transfer matrices are elliptic with a margin, the Weyl solution keeps its size over a long run of periods and carries a fixed fraction of its mass beyond it. A Taylor expansion of energy filters transfers both to packets localized in energy.
+
+\subsection{Notation}\label{sec:mom-notation}
+
+Let $\sigma$ be the arcsine law on $[-2,2]$, with density $\pi^{-1}(4-x^2)^{-1/2}$; its moments are $m_k=\binom{k}{k/2}$ for even $k$ and $m_k=0$ for odd $k$. For $0<\beta<\infty$ and $\ell\in\R$ put $F_\beta(\ell)=\max\{0,1-\ell/\beta\}$; put $F_0\equiv0$ and $F_\infty\equiv1$. For a phase $\theta$ and a convergent $p_n/q_n$ let
+\[
+\Delta_n(E)=\Delta_\theta(E)=\tr A^{(p_n/q_n)}_{q_n}(E,\theta),
+\]
+the discriminant of the $p_n/q_n$-periodic operator $H_{v,p_n/q_n,\theta}$. For a finite Borel measure $\mu$ on $\R$ and $E\in\R$, the upper local dimension is $d^+_\mu(E)=\limsup_{r\downarrow0}\log\mu([E-r,E+r])/\log r$. The upper and lower packing dimensions of $\mu$ are the $\mu$-essential supremum and infimum of $d^+_\mu$, written $\dim_P^+(\mu)$ and $\dim_P^-(\mu)$. Recall that $\mu_\theta$ is the spectral measure of $\delta_0$ for $H_{v,\alpha,\theta}$.
+
+\begin{lemma}[Periodic magic formula~\cite{DKS2010}]\label{lem:magic}
+Let $H_{\mathrm{per}}$ be a $q$-periodic Schr\"odinger operator on $\ell^2(\Z)$ with hopping one and discriminant $\Delta$. Then $\Delta(H_{\mathrm{per}})=S^q+S^{-q}$.
+\end{lemma}
+
+This is the elementary direction of~\cite[Theorem~3.1]{DKS2010}, proved there by Floquet decomposition (equations (3.5)--(3.6)). The hypotheses hold: the operator is bounded, two-sided, periodic and has positive off-diagonal entries. Since $\Delta_n$ is the discriminant of $H_{v,p_n/q_n,\theta}$, the law of $\Delta_n$ under the spectral measure of $\delta_0$ for that periodic operator is exactly $\sigma$: its moments are $\langle\delta_0,(S^q+S^{-q})^k\delta_0\rangle=m_k$. The next two lemmas transfer this to the irrational operator.
+
+\subsection{The arcsine law}\label{sec:arcsine}
+
+\begin{lemma}[Arcsine law at strongly resonant scales]\label{lem:arcsine}
+Let $v$ be Lipschitz, $\theta\in\T$, $L_{\max}=\max_\Sigma L$, and let $\mathcal N$ be an infinite set of indices with $b_n\ge c>L_{\max}$ for $n\in\mathcal N$. For every real $g\in C_c^\infty(\R)$ and every integer $k\ge0$,
+\[
+\int g\,\Delta_n^k\,d\mu_\theta\to m_k\int g\,d\mu_\theta\qquad(n\to\infty,\ n\in\mathcal N).
+\]
+Consequently, if $g\ge0$, then $\int g\,\phi(\Delta_n)\,d\mu_\theta\to\sigma(\phi)\int g\,d\mu_\theta$ for every bounded continuous $\phi$.
+\end{lemma}
+
+\begin{proof}
+Fix $h\in(L_{\max},c)$. Let $U\supset\Sigma$ and $C$ be given by Lemma~\ref{lem:growth} with $K=\Sigma$, and $C'$ by Lemma~\ref{lem:ratprod}. Write $q=q_n$, $p=p_n$, $\delta=\delta_n$, $F=S^q+S^{-q}$ and $Q=\Delta_n(H_{v,\alpha,\theta})$. Since $\Delta_n$ is a real polynomial of degree $q$, $Q$ is a real symmetric operator with $\langle\delta_i,Q\delta_j\rangle=0$ for $|i-j|>q$.
+
+\emph{Rows.} Fix $j\in\Z$ with $|j|\le(k+1)q$. Let $\varphi_j=\theta+j(\alpha-p/q)$ and $B_j=H_{v,p/q,\varphi_j}$, whose potential at site $i$ is $v(\theta+j\alpha+(i-j)p/q)$. It agrees with the potential of $H=H_{v,\alpha,\theta}$ at $i=j$ and differs from it by at most $\Lip(v)|i-j||\alpha-p/q|\le\Lip(v)|\delta|$ for $|i-j|\le q$. Let $C_j$ be $B_j$ with its potential on $[j-q,j+q]$ replaced by that of $H$, so $\|B_j-C_j\|\le\Lip(v)|\delta|$. A path of length at most $q$ starting at $j$ stays in $[j-q,j+q]$, so the $j$-th rows of $\Delta_\theta(C_j)$ and $Q$ coincide. The discriminant of $B_j$ is $\Delta_{\varphi_j}$, so by Lemma~\ref{lem:magic} the $j$-th row of $\Delta_{\varphi_j}(B_j)$ is that of $F$. Hence the $j$-th row of $Q-F$ is the $j$-th row of
+\[
+\bigl[\Delta_\theta(C_j)-\Delta_\theta(B_j)\bigr]+\bigl[\Delta_\theta(B_j)-\Delta_{\varphi_j}(B_j)\bigr].
+\]
+By Lemma~\ref{lem:ratspec}, $\sigma(B_j)\subset\Sigma_{p/q}$ lies within $C|\delta/q|^{1/2}$ of $\Sigma$, and $\sigma(C_j)$ lies within $\Lip(v)|\delta|$ of $\sigma(B_j)$. Fix an open $U'$ with $\Sigma\subset U'\subset\overline{U'}\subset U$. For large $n$ both spectra lie in $U'$, uniformly in $j$. Since $|\varphi_j-\theta|=|j||\delta|/q$, Lemma~\ref{lem:ratprod}(2) bounds the norm of the second bracket by $2C'^2\Lip(v)e^{hq}|j||\delta|\le2(k+1)C'^2\Lip(v)qe^{hq}|\delta|$. For the first bracket fix $\chi\in C_c^\infty(U)$ with $\chi=1$ on $U'$ and put $f=\chi\Delta_\theta$; then $f(B_j)=\Delta_\theta(B_j)$ and $f(C_j)=\Delta_\theta(C_j)$. For bounded self-adjoint $B,C$, Fourier inversion and $\|e^{itB}-e^{itC}\|\le|t|\,\|B-C\|$ give
+\[
+\|f(B)-f(C)\|\le\frac{\|B-C\|}{2\pi}\int_\R|t|\,|\hat f(t)|\,dt\le c\,\|B-C\|\,\|f\|_{H^2(\R)},
+\]
+by the Cauchy--Schwarz inequality and $\int t^2(1+t^2)^{-2}\,dt<\infty$. By Lemma~\ref{lem:ratprod}(2), $\|f\|_{H^2}\le C_\chi q^2e^{hq}$. Altogether each row of $Q-F$ with index $|j|\le(k+1)q$ has $\ell^2$ norm at most $r_n:=C_kq^2e^{hq}|\delta|=C_kq^2e^{(h-b_n)q}$, which tends to zero exponentially.
+
+\emph{Restricted norm.} Let $P_k=\un_{[-kq,kq]}$. The operator $(Q-F)P_k$ has nonzero rows only in $[-(k+1)q,(k+1)q]$, and every row and column of $Q-F$ has at most $2q+1$ nonzero entries. Since $Q-F$ is symmetric, the $\ell^1$ norms of the rows and columns of $(Q-F)P_k$ are at most $\sqrt{2q+1}\,r_n$, and the Schur test gives $\|(Q-F)P_k\|\le\eps_n:=\sqrt{2q+1}\,r_n\to0$.
+
+\emph{Moments.} For $i\le k$ the vectors $Q^i\delta_0$ and $F^i\delta_0$ are supported in $[-iq,iq]$. Let $e_i=\|Q^i\delta_0-F^i\delta_0\|$. For $i<k$, $\|Q\phi\|\le(2+\eps_n)\|\phi\|$ for $\phi$ supported in $[-kq,kq]$, so
+\[
+e_{i+1}\le\|Q(Q^i\delta_0-F^i\delta_0)\|+\|(Q-F)F^i\delta_0\|\le(2+\eps_n)e_i+\eps_n2^i,
+\]
+and $e_k\le(2+\eps_n)^k-2^k\to0$. Now $F^k\delta_0=\sum_i\binom{k}{(k+i)/2}\delta_{iq}$, the sum over $|i|\le k$ with $i\equiv k\bmod 2$. Hence
+\[
+\int g\,\Delta_n^k\,d\mu_\theta=\langle g(H)\delta_0,Q^k\delta_0\rangle=m_k\int g\,d\mu_\theta+\sum_{i\ne0}\binom{k}{(k+i)/2}\langle g(H)\delta_0,\delta_{iq}\rangle+O(\|g\|_\infty e_k).
+\]
+By Lemma~\ref{lem:QL}, $|\langle\delta_{iq},g(H)\delta_0\rangle|\le C_g|iq|^{-1}\to0$ for $i\ne0$. This proves the first claim.
+
+For $g\ge0$ with $\int g\,d\mu_\theta>0$, the probability measures $(\Delta_n)_*(g\mu_\theta)/\int g\,d\mu_\theta$ have moments converging to those of $\sigma$. The law $\sigma$ has compact support, so it is determined by its moments, and convergence of all moments to those of a moment-determinate law implies weak convergence~\cite[Theorems~30.1 and~30.2]{Billingsley1995}. If $\int g\,d\mu_\theta=0$ there is nothing to prove.
+\end{proof}
+
+The hypothesis $b_n>L_{\max}$ enters only through the global comparison of $\Delta_n(H)$ with $F$. For type~I potentials the window estimate of Section~\ref{sec:typeI} makes the comparison local in energy, and the hypothesis can be weakened to $b_n>L(E_0)$ near a given energy $E_0$.
+
+\begin{lemma}[Localized arcsine law]\label{lem:arcsineloc}
+Let $v$ be real analytic with $H_{v,\alpha}$ supercritical and type~I, and let $\theta\in G^v_\alpha$. Let $E_0\in\R$ and $\gamma>0$, and let $\mathcal N$ be an infinite set of indices with $b_n\ge\ell(E_0)+30\gamma$ for $n\in\mathcal N$. For every real $g\in C_c^\infty(\R)$ supported in $\{E:|\ell(E)-\ell(E_0)|<\gamma\}$ and every $\phi\in C_c^1(\R)$,
+\[
+\int g\,\phi(\Delta_n)\,d\mu_\theta-\sigma(\phi)\int g\,d\mu_\theta\to0\qquad(n\to\infty,\ n\in\mathcal N).
+\]
+If $g\ge0$, the same holds for every bounded continuous $\phi$.
+\end{lemma}
+
+\begin{proof}
+Write $q=q_n$, $p=p_n$, $\delta=\delta_n$, $b=b_n$, $\ell_0=\ell(E_0)$, $J_g=\supp g$, $H=H_{v,\alpha,\theta}$, and let $Y=H_{v,p/q,\theta}$, the periodic operator whose discriminant is $\Delta_n$. Their potentials satisfy $|V_H(k)-V_Y(k)|\le\Lip(v)|k||\delta|/q$. Put $T=T_n=e^{(\ell_0+2\gamma)q}$, $z=E+i/T$, $G_H=(H-z)^{-1}\delta_0$ and $G_Y=(Y-z)^{-1}\delta_0$. Write $\mu_Y$ for the spectral measure of $\delta_0$ and $Y$.
+
+\emph{Step 1: confinement on $J_g$.} Apply Theorem~\ref{thm:tI-window} with $c=\ell_0+30\gamma$, $d=\ell_0+\gamma$, $B=\ell_0+3\gamma$, $\eps=\gamma/2$, $m=1$, and with $\xi<\min\{\gamma/2,c,d,\ell_*,1,\eta_0\}/100$ and $\zeta<\xi/100$. Since $\theta\in G^v_\alpha$, Lemma~\ref{lem:tI-Wgood} gives (W) at $(q_n,q_n\theta,\tau_{q_n})$ for all large $n\in\mathcal N$. Let $R=e^{4\gamma q}$. If $E\in J_g$ and $\dist(E,\Sigma)\le e^{-\xi q}$, then $\ell(E)>\ell_0-\gamma$, so $e^{11\xi q}[1+Te^{-\ell(E)q}]\le e^{11\xi q}(1+e^{3\gamma q})\le R$ for large $q$, and part~2 of Theorem~\ref{thm:tI-window} gives $\|\un_{\{|k|>R\}}G_H\|\le4T^{-1}$. If $E\in J_g$ and $\dist(E,\Sigma)\ge e^{-\xi q}$, part~3 gives $\|\un_{\{|k|>R\}}G_H\|^2\le64e^{3\xi q}\exp(-e^{(4\gamma-\xi)q}/4)\le16T^{-2}$ for large $q$. So $\|\un_{\{|k|>R\}}G_H\|\le4T^{-1}$ for every $E\in J_g$ and all large $n\in\mathcal N$.
+
+\emph{Step 2: comparison with the periodic operator.} The second resolvent identity gives $G_H-G_Y=-(Y-z)^{-1}(V_H-V_Y)G_H$, and $\|(Y-z)^{-1}\|\le T$. Splitting the multiplication by $V_H-V_Y$ into $|k|\le R$ and $|k|>R$,
+\[
+\|G_H-G_Y\|\le T\,\Lip(v)R|\delta|\,\|G_H\|+8\|v\|_\infty\qquad(E\in J_g).
+\]
+Put $D^2=(\pi T)^{-1}\int_{J_g}\|G_H-G_Y\|^2\,dE$. Since $(\pi T)^{-1}\int_\R\|G_H\|^2\,dE=1$ by Lemma~\ref{lem:parseval}, Minkowski's inequality gives
+\[
+D\le T\,\Lip(v)R|\delta|+8\|v\|_\infty\bigl(|J_g|/(\pi T)\bigr)^{1/2}\le Ce^{(\ell_0+6\gamma-b)q}+CT^{-1/2}\to0,
+\]
+because $b\ge\ell_0+30\gamma$. For every bounded Borel $f$ supported in $J_g$, writing $\|G_H\|^2-\|G_Y\|^2=\langle G_H-G_Y,G_H\rangle+\langle G_Y,G_H-G_Y\rangle$ and using the Cauchy--Schwarz inequality and the normalization for $H$ and $Y$,
+\[
+\Bigl|\frac1{\pi T}\int f(E)\bigl(\|G_H\|^2-\|G_Y\|^2\bigr)\,dE\Bigr|\le2\|f\|_\infty D.
+\]
+
+\emph{Step 3: smoothing.} By Lemma~\ref{lem:parseval}, $(\pi T)^{-1}\int f\|G_H\|^2dE=\int\mathcal P_{1/T}*f\,d\mu_\theta$, and the same holds for $Y$ and $\mu_Y$. For a Lipschitz function $f$ and $\epsilon\in(0,1]$,
+\[
+|\mathcal P_\epsilon*f-f|\le\Lip(f)\int_{|u|\le1}|u|\mathcal P_\epsilon(u)\,du+2\|f\|_\infty\int_{|u|>1}\mathcal P_\epsilon\le\Lip(f)\,\epsilon\log(1+\epsilon^{-2})+2\|f\|_\infty\epsilon.
+\]
+Apply this to $f_n=g\,\phi(\Delta_n)$, whose derivative is supported in $J_g$. Since $\ell<\ell_0+\gamma$ on $J_g$, Lemmas~\ref{lem:growth} and~\ref{lem:ratprod}(2) with $K=J_g$ and $h=\ell_0+3\gamma/2$ give $\sup_{J_g}|\Delta_n'|\le Cqe^{(\ell_0+3\gamma/2)q}$, so $\Lip(f_n)\le Cqe^{(\ell_0+3\gamma/2)q}$ and $\Lip(f_n)T^{-1}\log T\to0$. Together with Step~2,
+\[
+\int f_n\,d\mu_\theta-\int f_n\,d\mu_Y\to0,\qquad\int g\,d\mu_\theta-\int g\,d\mu_Y\to0.
+\]
+
+\emph{Step 4: the periodic operator.} By Lemma~\ref{lem:magic}, $\Delta_n(Y)=S^q+S^{-q}$, and $\sigma(Y)=\{|\Delta_n|\le2\}$. For a polynomial $P$,
+\[
+\int g\,P(\Delta_n)\,d\mu_Y=\langle g(Y)\delta_0,P(S^q+S^{-q})\delta_0\rangle=\sigma(P)\int g\,d\mu_Y+o(1),
+\]
+because $(S^q+S^{-q})^k\delta_0$ is a combination of the vectors $\delta_{iq}$, and $|\langle\delta_{iq},g(Y)\delta_0\rangle|\le C_g|iq|^{-1}$ for $i\ne0$ by Lemma~\ref{lem:QL}, uniformly in the periodic operator. The signed measure $(\Delta_n)_*(g\mu_Y)$ is supported in $[-2,2]$ and has total variation at most $\|g\|_\infty$. Approximating $\phi$ uniformly on $[-2,2]$ by polynomials gives $\int g\,\phi(\Delta_n)\,d\mu_Y-\sigma(\phi)\int g\,d\mu_Y\to0$. Combined with Step~3, this proves the first claim.
+
+If $g\ge0$, the measures $(\Delta_n)_*(g\mu_\theta)$ have the fixed total mass $\int g\,d\mu_\theta$, and they converge vaguely to $\sigma\int g\,d\mu_\theta$ because $C_c^1$ is dense in $C_0$. With conservation of mass this is weak convergence.
+\end{proof}
+
+\subsection{The elliptic run}\label{sec:run}
+
+In this subsection $v$ is Lipschitz, $\theta\in\T$, $p/q$ is a convergent of $\alpha$ with $\delta=q\alpha-p$, and $z=E+i\eps$ with $E$ real and $\eps>0$. Let $u\in\ell^2(\Z_{\ge0})$ satisfy
+\[
+u(k+1)+u(k-1)+v(\theta+k\alpha)u(k)=zu(k)\qquad(k\ge1).
+\]
+For $m\ge0$ put $x_m=\theta+(mq+1)\alpha$, $A_m(w)=A_q(w,x_m)$ and $\Psi_m=(u(mq+1),u(mq))^{\mathsf T}$, so that $\Psi_{m+1}=A_m(z)\Psi_m$ and $u(mq+1+r)=e_1^{\mathsf T}A_r(z,x_m)\Psi_m$ for $0\le r<q$. The block masses are $M_m=\sum_{r<q}|u(mq+1+r)|^2$. When $A_m(E)$ is elliptic, a \emph{frame} is a matrix $B_m\in SL(2,\R)$ with $B_m(i)$ the fixed point of $A_m(E)$ in the upper half-plane, so that $B_m^{-1}A_m(E)B_m=R_{\varrho_m}$ is a rotation (Lemma~\ref{lem:blocks}(4)). Given a frame we put
+\[
+u^{(m)}_r=e_1^{\mathsf T}A_r(E,x_m)B_m,\qquad S_m=\sum_{r<q}\|u^{(m)}_r\|^2,\qquad G_m=\sum_{r<q}(u^{(m)}_r)^{\mathsf T}u^{(m)}_r,\qquad\Phi_m=B_m^{-1}\Psi_m .
+\]
+Then $G_m$ is real, symmetric and positive semidefinite with trace $S_m$, and $S_m=S_{A_m(E)}$ in the notation of Section~\ref{sec:lower}.
+
+\begin{lemma}[Elliptic run]\label{lem:run}
+Let $0<\eta\le1$ and suppose $|\tr A_0(E)|\le2-\eta$. Let $B_0$ be a frame for $A_0(E)$, put $\kappa=(\Lip(v)+1)\max(\eps,|\delta|)$ and $K=\lfloor\eta^{3/2}/(2^{10}\kappa S_0)\rfloor$, and assume $K\ge8$. Let $m_0=\lceil K/2\rceil$. Then
+\[
+\sum_{k\ge m_0q+1}|u(k)|^2\ge\frac{\eta^{5/2}}{2^{22}}\,\frac{\|\Phi_0\|^2}{\kappa},\qquad\sum_{k\ge1}|u(k)|^2\le\Bigl(\frac1\kappa+\frac2\eps\Bigr)\|\Phi_0\|^2,\qquad|u(0)|^2\le\|B_0\|^2\|\Phi_0\|^2.
+\]
+\end{lemma}
+
+The run has about $Kq$ sites, of order $q/(\max(\eps,|\delta|)S_0)$ up to factors depending on $\eta$ and $\Lip(v)$. The lemma controls the size of the conjugated vectors $\Phi_m$ and the masses of pairs of adjacent blocks; it says nothing about individual sites, where a standing wave may have nodes.
+
+\begin{proof}
+\emph{Margin.} If $M\in SL(2,\R)$ and $|\tr M|\le2-\eta/2$, then $M$ is elliptic, conjugate to a rotation $R_\varrho$ with $|\cos\varrho|\le1-\eta/4$, and $|\sin\varrho|\ge s_0:=\sqrt\eta/2$, since $\sin^2\varrho\ge\eta/2-\eta^2/16\ge\eta/4$.
+
+\emph{Step 1: from one block to the next.} Since $x_{m+1}=x_m+\delta\bmod 1$, the potentials of block $m+1$ and block $m$ at the same position $r$ are $v(x_m+\delta+r\alpha)$ and $v(x_m+r\alpha)$; they differ by at most $\Lip(v)|\delta|$. Suppose $A_m(E)$ has a frame $B_m$. Lemma~\ref{lem:blocks}(5) gives, for $0\le r\le q$,
+\[
+A_r(E,x_{m+1})B_m=A_r(E,x_m)B_m\Pi_r,\qquad\|\Pi_r-I\|\le y_m:=e^{\Lip(v)|\delta|S_m}-1,
+\]
+and in the same way $A_r(z,x_m)B_m=A_r(E,x_m)B_m\Pi_r(i\eps)$ with $\|\Pi_r(i\eps)-I\|\le e^{\eps S_m}-1$. In particular $B_m^{-1}A_{m+1}(E)B_m=R_{\varrho_m}\Pi_q$ and $|\tr A_{m+1}(E)-\tr A_m(E)|\le2y_m$.
+
+\emph{Step 2: frame update.} Let $M'=R_\varrho(I+Y)\in SL(2,\R)$ with $|\sin\varrho|\ge s_0$ and $\|Y\|\le y\le s_0/8$. Conjugation by the unitary Cayley matrix $2^{-1/2}\bigl(\begin{smallmatrix}1&-i\\1&i\end{smallmatrix}\bigr)$ maps $SL(2,\R)$ acting on the upper half-plane to matrices $\bigl(\begin{smallmatrix}a&b\\\bar b&\bar a\end{smallmatrix}\bigr)$ with $|a|^2-|b|^2=1$ acting on the disc, maps $i$ to $0$, maps $R_\varrho$ to $\operatorname{diag}(e^{-i\varrho},e^{i\varrho})$ and preserves operator norms. So $|b|\le y$ and $|a-e^{-i\varrho}|\le y$, hence $|\operatorname{Im}a|\ge s_0-y\ge s_0/2>|b|$. Then $M'$ is elliptic, and its fixed point in the disc has modulus $|b|/(|\operatorname{Im}a|+((\operatorname{Im}a)^2-|b|^2)^{1/2})\le2y/s_0\le1/4$. Since $\log\frac{1+r}{1-r}\le3r$ for $0\le r\le1/2$, the fixed point $w'$ of $M'$ in the upper half-plane satisfies $d(i,w')\le6y/s_0$. Apply this to $M'=B_m^{-1}A_{m+1}(E)B_m=R_{\varrho_m}\Pi_q$, with $y=y_m$, whenever $|\sin\varrho_m|\ge s_0$ and $y_m\le s_0/8$. Let $N_m\in SL(2,\R)$ be the positive symmetric matrix with $N_m(i)=w'$; then $\|N_m\|^2=\|N_m^{-1}\|^2=e^{d(i,w')}\le e^{d_m}$ with $d_m:=12y_m/s_0$. The matrix $B_{m+1}:=B_mN_m$ is a frame for $A_{m+1}(E)$, because $B_{m+1}(i)=B_m(w')$ is the fixed point of $A_{m+1}(E)=B_mM'B_m^{-1}$.
+
+\emph{Step 3: bootstrap.} We show by induction on $m\le K$ that frames are defined and
+\begin{equation}\label{eq:run-a}
+|\tr A_m(E)|\le2-\eta/2,\qquad S_m\in[S_0/2,2S_0],\qquad\|\Phi_m\|\in[\|\Phi_0\|/2,2\|\Phi_0\|].
+\end{equation}
+This holds at $m=0$. Assume it for all $j<m$. Since $K\ge8$, $\kappa S_0\le\eta^{3/2}/2^{13}$ and $K\kappa S_0\le\eta^{3/2}/2^{10}$. Using $\Lip(v)|\delta|\le\kappa$ and $e^x-1\le2x$ for $0\le x\le1$, for $j<m$,
+\[
+y_j\le2\Lip(v)|\delta|S_j\le4\kappa S_0\le\eta^{3/2}/2^{11}\le s_0/8 .
+\]
+By Step~2 the frames $B_{j+1}$ are defined. By Step~1, $|\tr A_m(E)-\tr A_0(E)|\le2\sum_{j<m}y_j\le8K\kappa S_0\le\eta/2$, which gives the first claim in~\eqref{eq:run-a}. Next, with $\Pi_r$ the factors of Step~1 for the block $j$, $u^{(j+1)}_r=e_1^{\mathsf T}A_r(E,x_{j+1})B_jN_j=u^{(j)}_r\Pi_rN_j$, so
+\[
+S_j(1-y_j)^2e^{-d_j}\le S_{j+1}\le S_j(1+y_j)^2e^{d_j},
+\]
+and $|\log(S_m/S_0)|\le\sum_{j<m}(3y_j+d_j)\le\sum_{j<m}27y_j/\sqrt\eta\le108K\kappa S_0/\sqrt\eta\le108\eta/2^{10}<0.11$. Finally $\Phi_{j+1}=N_j^{-1}\bigl[B_j^{-1}A_j(z)B_j\bigr]\Phi_j$, and $B_j^{-1}A_j(z)B_j=R_{\varrho_j}\Pi_q(i\eps)$ and its inverse have norm at most $e^{\eps S_j}$, since a $2\times2$ matrix of determinant one and its inverse have the same norm. Since $\eps\le\kappa$,
+\[
+\bigl|\log(\|\Phi_m\|/\|\Phi_0\|)\bigr|\le\sum_{j<m}\bigl(\eps S_j+d_j/2\bigr)\le2K\kappa S_0+48K\kappa S_0/\sqrt\eta<0.05 .
+\]
+This proves~\eqref{eq:run-a} for $m$.
+
+\emph{Step 4: pairs of blocks.} Let $G$ be a real symmetric positive semidefinite $2\times2$ matrix with trace $S$, and $R=R_\varrho$. Write $G=(S/2)I+G_0$ with $G_0$ traceless and $\|G_0\|=g\le S/2$. Conjugation by $R$ rotates $G_0$ by the angle $2\varrho$ in the plane of traceless symmetric matrices, so $\|G_0+R^{\mathsf T}G_0R\|=2g|\cos\varrho|$ and
+\[
+G+R^{\mathsf T}GR\ge S(1-|\cos\varrho|)\,I .
+\]
+This is an inequality between Hermitian matrices, so $\Phi^*(G+R^{\mathsf T}GR)\Phi\ge S(1-|\cos\varrho|)\|\Phi\|^2$ for every $\Phi\in\C^2$. Now fix $m<K$. By Step~1,
+\[
+M_m=\sum_r\bigl|u^{(m)}_r\Pi_r(i\eps)\Phi_m\bigr|^2,\qquad M_{m+1}=\sum_r\bigl|u^{(m)}_r\Pi_r\Pi'_r(i\eps)R_{\varrho_m}\Pi_q(i\eps)\Phi_m\bigr|^2,
+\]
+where $\Pi'_r(i\eps)$ is the factor of Lemma~\ref{lem:blocks}(5) for the complex shift of block $m+1$, computed with the rows $u^{(m)}_r\Pi_r$ in the frame $B_m$, whose squared norms sum to at most $(1+y_m)^2S_m\le2S_m$. Each of the factors $\Pi_r$, $\Pi'_r(i\eps)$, $\Pi_r(i\eps)$, $\Pi_q(i\eps)$ is within $\eps_2:=e^{2(\eps+\Lip(v)|\delta|)S_m}-1\le e^{4\kappa S_0}-1\le8\kappa S_0\le\eta^{3/2}/2^{10}$ of the identity. So the vectors acted on by $u^{(m)}_r$ differ from $\Phi_m$, respectively $R_{\varrho_m}\Phi_m$, by at most $\eps_2\|\Phi_m\|$, respectively $((1+\eps_2)^3-1)\|\Phi_m\|\le4\eps_2\|\Phi_m\|$. Since $\sum_r|u^{(m)}_rw|^2\le S_m\|w\|^2$, the triangle inequality in $\ell^2(r)$ and $(x-y)^2\ge x^2/2-y^2$ give
+\[
+M_m+M_{m+1}\ge\tfrac12\Phi_m^*\bigl(G_m+R_{\varrho_m}^{\mathsf T}G_mR_{\varrho_m}\bigr)\Phi_m-17\eps_2^2S_m\|\Phi_m\|^2\ge\Bigl(\frac\eta8-17\eps_2^2\Bigr)S_m\|\Phi_m\|^2\ge\frac\eta{16}S_m\|\Phi_m\|^2 .
+\]
+By~\eqref{eq:run-a}, $M_m+M_{m+1}\ge(\eta/2^7)S_0\|\Phi_0\|^2$. Also $M_m\le(1+\eps_2)^2S_m\|\Phi_m\|^2\le9S_0\|\Phi_0\|^2$ for $m<K$.
+
+\emph{Step 5: the tail beyond the run.} Multiply the equation by $\overline{u(k)}$, sum over $k>n\ge0$ and take imaginary parts. Since $u\in\ell^2$ and the potential is real, the sum telescopes:
+\[
+\eps\sum_{k>n}|u(k)|^2=\operatorname{Im}\bigl(\overline{u(n+1)}\,u(n)\bigr).
+\]
+For $\Psi=(u(n+1),u(n))^{\mathsf T}=B\Phi$ with $B$ real of determinant one, $\overline{\Psi_1}\Psi_2-\Psi_1\overline{\Psi_2}=\det(\bar\Psi,\Psi)=\det(\bar\Phi,\Phi)$, so $|\operatorname{Im}(\overline{u(n+1)}u(n))|\le|\Phi_1||\Phi_2|\le\|\Phi\|^2/2$. At $n=Kq$, with $\Psi=\Psi_K=B_K\Phi_K$ and~\eqref{eq:run-a},
+\[
+\sum_{k\ge Kq+1}|u(k)|^2\le\frac{\|\Phi_K\|^2}{2\eps}\le\frac{2\|\Phi_0\|^2}{\eps}.
+\]
+
+\emph{Step 6: conclusion.} Let $X=\eta^{3/2}/(2^{10}\kappa S_0)$, so $K=\lfloor X\rfloor\ge8$ and $K\ge X/2$. The blocks $m_0\le m\le K$ contain at least $K/8$ disjoint adjacent pairs $(m,m+1)$ with $m<K$, and they consist of sites $k\ge m_0q+1$. By Step~4,
+\[
+\sum_{k\ge m_0q+1}|u(k)|^2\ge\frac K8\cdot\frac{\eta}{2^7}S_0\|\Phi_0\|^2\ge\frac{X\eta S_0}{2^{11}}\|\Phi_0\|^2=\frac{\eta^{5/2}}{2^{21}}\frac{\|\Phi_0\|^2}{\kappa}.
+\]
+The sites $1\le k\le Kq$ form the blocks $m<K$, whose total mass is at most $9KS_0\|\Phi_0\|^2\le9XS_0\|\Phi_0\|^2\le\|\Phi_0\|^2/\kappa$. With Step~5 this gives the second bound. Finally $u(0)=e_2^{\mathsf T}\Psi_0=e_2^{\mathsf T}B_0\Phi_0$.
+\end{proof}
+
+No turning-point analysis is needed: Step~5 controls everything beyond the run through the flux, at the price of a damping $\eps\ge|\delta|/C$ when the run is to carry a fixed fraction. No arithmetic condition on the phase is used.
+
+\subsection{A fixed fraction at resonant times}\label{sec:fraction}
+
+\begin{proposition}\label{prop:fraction}
+Let $v$ be Lipschitz and $\theta\in\T$. Let $a,\gamma>0$, $0<\eta\le1/4$, and let $K\subset\{E\in\R:L(E)<a\}$ be a compact interval. Let $\mathcal N$ be an infinite set of indices with $b_n\ge a+\gamma$ for $n\in\mathcal N$, and put
+\[
+T_n=|\delta_n|^{-1},\qquad N_n=\bigl\lfloor e^{(b_n-a-\gamma)q_n}\bigr\rfloor,\qquad I_n=\{E\in K:|\Delta_n(E)|\le2-2\eta\},
+\]
+and $f_0=\eta^{5/2}/(2^{25}(\Lip(v)+1))$.
+There is $C_\eta$ such that for all large $n\in\mathcal N$ and every $E\in I_n$, with $G(k)=\langle\delta_k,(H_{v,\alpha,\theta}-E-i/T_n)^{-1}\delta_0\rangle$:
+\begin{enumerate}
+\item $\sum_{|k|>N_n}|G(k)|^2\ge2f_0\sum_{k\in\Z}|G(k)|^2$;
+\item $\mu_\theta\bigl([E-|\delta_n|,E+|\delta_n|]\bigr)\le C_\eta e^{(a+\gamma/2)q_n}|\delta_n|$.
+\end{enumerate}
+If moreover $K'\subset K$ is a compact interval in the interior of $K$, then for all large $n\in\mathcal N$,
+\[
+\frac1{\pi T_n}\int_{I_n}\bigl\|\un_{\{|k|>N_n\}}(H_{v,\alpha,\theta}-E-i/T_n)^{-1}\delta_0\bigr\|^2\,dE\ \ge\ f_0\,\mu_\theta\bigl(\{E\in K':|\Delta_n(E)|\le2-3\eta\}\bigr).
+\]
+In particular $P(N_n,T_n)$ is at least the right-hand side.
+\end{proposition}
+
+\begin{proof}
+Since $L$ is upper semicontinuous, $\max_KL<a$. Put $h_0=a+\gamma/2$, and let $U\supset K$ and $C$ be given by Lemma~\ref{lem:growth} with $h=h_0$, and $C'$ by Lemma~\ref{lem:ratprod}. Write $q=q_n$, $\delta=\delta_n$, $b=b_n$, $\eps=|\delta|=1/T_n$, $\kappa=(\Lip(v)+1)|\delta|$, and fix $E\in I_n$.
+
+\emph{The right half-line.} The sequence $u(k)=G(k)$, $k\ge0$, is square summable and solves the equation of Section~\ref{sec:run} with $z=E+i\eps$ for $k\ge1$. Its first block is $A_0(E)=A_q(E,\theta+\alpha)$. Since $\Delta_\varphi$ is $1/q$-periodic and $\alpha\equiv\delta/q\bmod 1/q$, Lemma~\ref{lem:ratprod}(2),(3) give
+\[
+|\tr A_q(E,\theta+\alpha)-\Delta_n(E)|\le|\tr A_q(E,\theta+\alpha)-\Delta_{\theta+\alpha}(E)|+|\Delta_{\theta+\delta/q}(E)-\Delta_\theta(E)|\le4C'^2\Lip(v)qe^{h_0q}|\delta|,
+\]
+which is at most $\eta$ for large $n$ because $b>h_0$. So $|\tr A_0(E)|\le2-\eta$. By Lemma~\ref{lem:blocks}(1), the product rule and $|\sin\varrho_0|\ge\sqrt\eta/2$, $S_0=|\partial_E\tr A_0(E)|/|\sin\varrho_0|\le(4/\sqrt\eta)C^2qe^{h_0q}$. Hence $X=\eta^{3/2}/(2^{10}\kappa S_0)\ge c_\eta e^{(b-h_0)q}/q$ with $c_\eta>0$, so the run length $\lfloor X\rfloor$ of Lemma~\ref{lem:run} is at least $8$, and its $m_0$ satisfies $m_0q\ge(X-1)q/2\ge e^{(b-a-\gamma)q}\ge N_n$ for large $n$, uniformly in $E\in I_n$. Lemma~\ref{lem:run} gives, with $\Phi^+_0$ and $B^+_0$ its vector and frame,
+\[
+\mathrm{far}_+:=\sum_{k>N_n}|G(k)|^2\ge\frac{\eta^{5/2}}{2^{22}}\frac{\|\Phi^+_0\|^2}{\kappa},\qquad\sum_{k\ge1}|G(k)|^2\le\Bigl(\frac1\kappa+\frac2{|\delta|}\Bigr)\|\Phi^+_0\|^2\le\frac{3(\Lip(v)+1)}{\kappa}\|\Phi^+_0\|^2 .
+\]
+
+\emph{The left half-line.} The sequence $\tilde u(k)=G(-k)$, $k\ge0$, solves the same equation for $k\ge1$ with $v$ replaced by $\tilde v(x)=v(-x)$ and $\theta$ by $-\theta$. The function $\tilde v$ has the same Lipschitz constant. Conjugation by $\operatorname{diag}(1,-1)$ maps each one-step matrix to its transpose, so a product of one-step matrices and the product in reversed order have the same norm and the same trace. Hence $\|A^{\tilde v}_r(E,x)\|=\|A_r(E,-x-(r-1)\alpha)\|$, the same holds for rational products, and Lemmas~\ref{lem:growth} and~\ref{lem:ratprod} hold for $\tilde v$ with the same $U$, $C$ and $C'$. The rational discriminant of $\tilde v$ at the phase $-\theta$ is a trace of the factors of $\Delta_\theta$ in reversed cyclic order, so it equals $\Delta_n$. The argument of the right half-line therefore applies verbatim and gives the same bounds for $\mathrm{far}_-:=\sum_{k<-N_n}|G(k)|^2$ and $\sum_{k\le-1}|G(k)|^2$, with a vector $\Phi^-_0$.
+
+\emph{Part~1.} By Lemma~\ref{lem:blocks}(4), $\|A_0\|_{\mathrm{HS}}^2=2+4\sinh^2(d)\sin^2\varrho_0$ with $d=d(i,B^+_0(i))$, so $\|B^+_0\|^2=e^d\le1+2\sinh d\le1+2\sqrt2\|A_0\|/\sqrt\eta\le C_\eta e^{h_0q}$. So
+\[
+|G(0)|^2\le\|B^+_0\|^2\|\Phi^+_0\|^2\le C_\eta e^{h_0q}\kappa\,\frac{2^{22}}{\eta^{5/2}}\,\mathrm{far}_+=o(1)\,\mathrm{far}_+,
+\]
+since $\kappa e^{h_0q}\le Ce^{(h_0-b)q}$. Adding the two half-lines and the origin,
+\[
+\sum_k|G(k)|^2\le\Bigl(\frac{3(\Lip(v)+1)2^{22}}{\eta^{5/2}}+o(1)\Bigr)(\mathrm{far}_++\mathrm{far}_-)\le\frac{1}{2f_0}\sum_{|k|>N_n}|G(k)|^2 .
+\]
+
+\emph{Part~2.} Since $\operatorname{Im}G(0)=\eps\sum_k|G(k)|^2\ge\eps\,\mathrm{far}_+\ge\eta^{5/2}\|\Phi^+_0\|^2/(2^{22}(\Lip(v)+1))$ and $\operatorname{Im}G(0)\le|G(0)|\le\|B^+_0\|\|\Phi^+_0\|$, we get $\|\Phi^+_0\|\le C_\eta'\|B^+_0\|$ and $|G(0)|\le C'_\eta\|B^+_0\|^2\le C_\eta e^{h_0q}$. Finally $\operatorname{Im}G(0)=\int\eps\,((x-E)^2+\eps^2)^{-1}d\mu_\theta(x)\ge\mu_\theta([E-\eps,E+\eps])/(2\eps)$.
+
+\emph{The integrated bound.} By Lemma~\ref{lem:parseval} and part~1,
+\[
+\frac1{\pi T_n}\int_{I_n}\sum_{|k|>N_n}|G(k)|^2\,dE\ge\frac{2f_0}{\pi T_n}\int_{I_n}\sum_k|G(k)|^2\,dE=2f_0\int\!\!\int_{I_n}\mathcal P_\eps(E-x)\,dE\,d\mu_\theta(x).
+\]
+Let $r_n=\min\{\dist(K',\R\setminus K),\ \eta/(2C'^2qe^{h_0q})\}$. If $x\in K'$ and $|\Delta_n(x)|\le2-3\eta$, then $[x-r_n,x+r_n]\subset I_n$ by Lemma~\ref{lem:ratprod}(2), and $\int_{|u|\le r_n}\mathcal P_\eps(u)\,du\ge1-2\eps/(\pi r_n)$. Since $\eps/r_n\le C_\eta qe^{(h_0-b)q}\to0$, the right side is at least $f_0\,\mu_\theta(\{x\in K':|\Delta_n(x)|\le2-3\eta\})$ for large $n$. Restricting the energy integral of Lemma~\ref{lem:parseval} to $I_n$ shows that $P(N_n,T_n)$ is at least the left side.
+\end{proof}
+
+\subsection{Strongly Liouville frequencies and Lipschitz potentials}\label{sec:U1}
+
+When $\beta(\alpha)$ exceeds the largest Lyapunov exponent on the spectrum, the global arcsine law applies, and no type~I hypothesis, phase condition or confinement estimate is needed.
+
+\begin{theorem}\label{thm:U1}
+Let $v$ be Lipschitz with $L$ continuous on $\Sigma$, let $L_{\max}=\max_\Sigma L$, and let $\alpha$ be irrational with $\beta=\beta(\alpha)>L_{\max}$, possibly $\beta=\infty$. For every phase $\theta$ put $\ell_\theta=\min\{L(E):E\in\supp\mu_\theta\}$. Then:
+\begin{enumerate}
+\item $\beta^+(p)\ge F_\beta(\ell_\theta)$ for every $p>0$;
+\item $d^+_{\mu_\theta}(E)\ge F_\beta(L(E))$ for $\mu_\theta$-almost every $E$; consequently $\dim_P^+(\mu_\theta)\ge F_\beta(\ell_\theta)$ and $\dim_P^-(\mu_\theta)\ge F_\beta(L_{\max})$.
+\end{enumerate}
+For every $\theta$, $\ell_\theta=\ell_*:=\min_\Sigma L$ holds at the phase $\theta$ or at the phase $\theta+\alpha$.
+\end{theorem}
+
+\begin{proof}
+Fix $\eta=1/4$, and fix $c\in(L_{\max},\beta)$.
+
+1. We may assume $\ell_\theta<\beta$. Let $E_0\in\supp\mu_\theta$ with $L(E_0)=\ell_\theta$, and let $\gamma>0$ with $\ell_\theta+2\gamma<\beta$. Put $a=\ell_\theta+\gamma$. Since $L$ is upper semicontinuous, $\{L<a\}$ is an open set containing $E_0$. Choose compact intervals $K'\subset\operatorname{int}K\subset K\subset\{L<a\}$ with $E_0$ in the interior of $K'$, and $g\in C_c^\infty$ with $0\le g\le1$, $\supp g\subset K'$ and $g>0$ near $E_0$, so that $\int g\,d\mu_\theta>0$. Choose an infinite set $\mathcal N$ with $b_n\to\beta$ and $b_n\ge\max(c,a+\gamma)$ for $n\in\mathcal N$. Since $0\le g\le\un_{K'}$, Lemma~\ref{lem:arcsine} and the portmanteau theorem applied to the open set $O_\eta=(-2+3\eta,2-3\eta)$ give
+\[
+\liminf_{n\in\mathcal N}\mu_\theta\bigl(\{E\in K':|\Delta_n(E)|\le2-3\eta\}\bigr)\ge\liminf_{n\in\mathcal N}\int g\,\un_{O_\eta}(\Delta_n)\,d\mu_\theta\ge\sigma(O_\eta)\int g\,d\mu_\theta=:2c_1>0 .
+\]
+Proposition~\ref{prop:fraction} gives $P(N_n,T_n)\ge f_0c_1$ for large $n\in\mathcal N$, and hence $M_p(T_n)\ge N_n^pP(N_n,T_n)\ge f_0c_1N_n^p$. Since $\log N_n\ge(b_n-a-\gamma)q_n-\log2$ and $\log T_n=b_nq_n$, we get $\beta^+(p)\ge1-(\ell_\theta+2\gamma)/\beta$, or $\beta^+(p)\ge1$ if $\beta=\infty$. Let $\gamma\to0$.
+
+2. Fix rationals $a>0$ and $\gamma>0$ with $a+\gamma<\beta$, and choose an infinite set $\mathcal N$ with $b_n\to\beta$ and $b_n\ge\max(c,a+\gamma)$. The open set $\{L<a\}$ is a countable union of the interiors of compact intervals $K'_i$ with $K'_i\subset\operatorname{int}K_i$ and $K_i\subset\{L<a\}$. Fix $i$, and let $g\ge0$ be smooth, positive exactly on $\operatorname{int}K'_i$. For $0<\eta\le1/4$ let $\Lambda_\eta$ be the set of $E\in K'_i$ with $|\Delta_n(E)|\le2-2\eta$ for infinitely many $n\in\mathcal N$. For the finite measure $g\mu_\theta$, Fatou's lemma for sets and the portmanteau theorem for closed sets give
+\[
+(g\mu_\theta)(K'_i\setminus\Lambda_\eta)\le\liminf_{n\in\mathcal N}(g\mu_\theta)\bigl(\{|\Delta_n|>2-2\eta\}\bigr)\le\sigma\bigl(\{|x|\ge2-2\eta\}\bigr)\int g\,d\mu_\theta,
+\]
+which tends to zero with $\eta$. So $g\mu_\theta$-almost every $E\in K'_i$ lies in some $\Lambda_{1/j}$. For such $E$, Proposition~\ref{prop:fraction}(2) holds at infinitely many $n\in\mathcal N$, so
+\[
+\frac{\log\mu_\theta([E-|\delta_n|,E+|\delta_n|])}{\log|\delta_n|}\ge1-\frac{a+\gamma/2}{b_n}-\frac{\log C_\eta}{b_nq_n}\to1-\frac{a+\gamma/2}{\beta}
+\]
+along these $n$, and $d^+_{\mu_\theta}(E)\ge1-(a+\gamma/2)/\beta$, read as $1$ if $\beta=\infty$. Since $g>0$ on $\operatorname{int}K'_i$, this holds for $\mu_\theta$-almost every $E\in\operatorname{int}K'_i$, hence for $\mu_\theta$-almost every $E$ with $L(E)<a$. Intersecting over the countably many rational $a,\gamma$ gives $d^+_{\mu_\theta}(E)\ge F_\beta(L(E))$ for $\mu_\theta$-almost every $E$ with $L(E)<\beta$; for $L(E)\ge\beta$ there is nothing to prove.
+
+The essential infimum of $L$ with respect to $\mu_\theta$ is $\ell_\theta$, because $L$ is continuous on $\Sigma\supset\supp\mu_\theta$, and $L\le L_{\max}$ on $\Sigma$. Since $F_\beta$ is nonincreasing, this gives the bounds on $\dim_P^\pm$.
+
+The last statement holds because $\delta_0$ and $\delta_1$ form a cyclic pair for $H$, so $\supp\mu_{\delta_0}\cup\supp\mu_{\delta_1}=\Sigma$, and the translation $(Uu)(n)=u(n+1)$ satisfies $UH_{v,\alpha,\theta}U^{-1}=H_{v,\alpha,\theta+\alpha}$ and $U\delta_1=\delta_0$, so the spectral measure of $\delta_1$ at the phase $\theta$ is $\mu_{\theta+\alpha}$.
+\end{proof}
+
+\subsection{Type I potentials: every moment, energy by energy}\label{sec:typeI-moments}
+
+In this subsection $v$ is real analytic, $H_{v,\alpha}$ is supercritical and of type~I, $\ell=L$ is continuous on $\R$, and $\theta\in G^v_\alpha$. For such $\theta$ put
+\[
+\ell_\theta=\min\{\ell(E):E\in\supp\mu_\theta\},\qquad\ell^\theta=\max\{\ell(E):E\in\supp\mu_\theta\}.
+\]
+Then $\ell_*\le\ell_\theta\le\ell^\theta$, and by continuity these are the $\mu_\theta$-essential infimum and supremum of $\ell$.
+
+\begin{theorem}[Every moment]\label{thm:U2}
+Let $0<\beta=\beta(\alpha)<\infty$. For every $p>0$,
+\[
+F_\beta(\ell_\theta)\le\beta^+(p)\le F_\beta(\ell_*).
+\]
+Moreover, for every $\gamma>0$ there is $c>0$ such that
+\[
+P\bigl(e^{(b_n-\ell_\theta-\gamma)q_n},\,|\delta_n|^{-1}\bigr)\ge c\qquad\text{for all large }n\text{ with }b_n\ge\ell_\theta+15\gamma.
+\]
+\end{theorem}
+
+\begin{proof}
+The upper bound follows from $\beta^+(p)\le\au$ and Theorem~\ref{thm:tI-law}. For the rest let $\gamma>0$, put $\gamma'=\gamma/2$, and let $E_0\in\supp\mu_\theta$ with $\ell(E_0)=\ell_\theta$. Choose compact intervals $K'\subset\operatorname{int}K$, with $E_0$ in the interior of $K'$, such that $|\ell-\ell_\theta|<\gamma'$ on $K$. Choose $g\in C_c^\infty$ with $0\le g\le1$, $\supp g\subset K'$ and $g>0$ near $E_0$, so that $\int g\,d\mu_\theta>0$. Let $\mathcal N=\{n:b_n\ge\ell_\theta+30\gamma'\}$. If $\mathcal N$ is finite there is nothing to prove; otherwise Lemma~\ref{lem:arcsineloc} with $E_0$, $\gamma'$ and $g$, and the portmanteau theorem, give
+\[
+\liminf_{n\in\mathcal N}\mu_\theta\bigl(\{E\in K':|\Delta_n(E)|\le2-3\eta\}\bigr)\ge\sigma\bigl((-2+3\eta,2-3\eta)\bigr)\int g\,d\mu_\theta=:2c_1>0
+\]
+with $\eta=1/4$. Proposition~\ref{prop:fraction} with $a=\ell_\theta+\gamma'$ and $\gamma'$ in place of $\gamma$ applies, because $K\subset\{\ell<a\}$ and $b_n\ge a+\gamma'$ on $\mathcal N$; its radius is $N_n=\lfloor e^{(b_n-\ell_\theta-\gamma)q_n}\rfloor$. It gives $P(N_n,|\delta_n|^{-1})\ge f_0c_1$ for large $n\in\mathcal N$, which is the fixed-fraction statement. If $\ell_\theta<\beta$, choose $\gamma$ with $\ell_\theta+15\gamma<\beta$ and $n\in\mathcal N$ with $b_n\to\beta$; as in the proof of Theorem~\ref{thm:U1}, $\beta^+(p)\ge1-(\ell_\theta+\gamma)/\beta$. Let $\gamma\to0$.
+\end{proof}
+
+Corollary~\ref{cor:allmoments} below shows that the two bounds of Theorem~\ref{thm:U2} coincide.
+
+\begin{remark}\label{rem:U2-shift}
+For $\beta(\alpha)=0$ all moment exponents vanish by Theorem~\ref{thm:tI-law}, and for $\beta(\alpha)=\infty$ they all equal one, for every phase~\cite[Theorem~3(2)]{JZ2022}.
+\end{remark}
+
+To resolve the dynamics in energy we filter the initial state. For real $g\in C_c^\infty(\R)$ let $\psi_g=g(H_{v,\alpha,\theta})\delta_0$. By Lemma~\ref{lem:QL}, $\psi_g$ has finite moments, and its spectral measure is $\mu_{\psi_g}=g^2\mu_\theta$.
+
+\begin{lemma}[Filtering]\label{lem:filter}
+Let $H$ be a Schr\"odinger operator with hopping one and bounded real potential, let $g\in C_c^\infty(\R)$ be real, and let $J,M\ge1$ be integers. For $T\ge1$ and real $E$ put $z=E+i/T$, $G_z=(H-z)^{-1}\delta_0$ and
+\[
+c_J(E,T)=\sum_{j<J}\frac{g^{(j)}(E)}{j!}\Bigl(\frac iT\Bigr)^j .
+\]
+There is $C$, depending on $g$, $J$, $M$ and a bound for $\|H\|$, such that for every $T\ge1$ and every integer $N\ge2J$,
+\[
+\Bigl|P_{\psi_g}(N,T)^{1/2}-\Bigl(\frac1{\pi T}\int_\R|c_J(E,T)|^2\,\bigl\|\un_{\{|n|>N\}}G_z\bigr\|^2\,dE\Bigr)^{1/2}\Bigr|\le CN^{-M}+CT^{-J},
+\]
+where $\psi_g=g(H)\delta_0$. Moreover $c_J(\cdot,T)$ vanishes outside $\supp g$ and $|c_J(E,T)-g(E)|\le C/T$.
+\end{lemma}
+
+\begin{proof}
+Taylor's formula at $E$ gives $g(x)=\sum_{j<J}g^{(j)}(E)(x-E)^j/j!+(x-E)^Jr_E(x)$ with $r_E(x)=\int_0^1(1-s)^{J-1}g^{(J)}(E+s(x-E))\,ds/(J-1)!$, so $|r_E(x)|\le\|g^{(J)}\|_\infty/J!$ for all $E,x$. Put $a=i/T$. The identity $(H-E)G_z=\delta_0+aG_z$ and induction on $j$ give
+\[
+(H-E)^jG_z=\sum_{r=0}^{j-1}a^r(H-E)^{j-1-r}\delta_0+a^jG_z .
+\]
+Applying the functional calculus,
+\[
+g(H)G_z=c_J(E,T)\,G_z+w_E+a^Jr_E(H)G_z,
+\]
+where $w_E$ is a sum of the vectors $(H-E)^k\delta_0$, $k<J$, with coefficients bounded by $C$, and of the vectors $a^rr_E(H)(H-E)^{J-1-r}\delta_0$, $0\le r<J$. The former are supported in $[-J,J]$ and vanish under $\un_{\{|n|>N\}}$. For the latter, let $\sigma(H)\subset[-R_0,R_0]$ and fix $\chi\in C_c^\infty$ equal to $1$ on $[-R_0-1,R_0+1]$; then $r_E(H)=(\chi r_E)(H)$. The functions $\chi r_E$ are bounded in $C^{M+3}$ for $E$ in a compact set. If $E$ lies outside $\supp g$ and $|E|\ge2R_0+4$, all derivatives of $g$ vanish at $E$, so $r_E(x)=g(x)/(x-E)^J$ on $\supp\chi$ and $\|\chi r_E\|_{C^{M+3}}\le C(1+|E|)^{-J}$. Lemma~\ref{lem:QL} with $M+1$ in place of $M$ and the Schur test give $\|\un_{\{|n|>N\}}(\chi r_E)(H)\un_{[-J,J]}\|\le C(1+|E|)^{-J}N^{-M}$ for $N\ge2J$, and $\|(H-E)^{J-1-r}\delta_0\|\le(R_0+|E|)^{J-1}$. Hence $\|\un_{\{|n|>N\}}w_E\|\le C(1+|E|)^{-1}N^{-M}$. The last term has norm at most $CT^{-J}\|G_z\|$.
+
+By Lemma~\ref{lem:parseval} with $\psi=\psi_g$, $P_{\psi_g}(N,T)=(\pi T)^{-1}\int\|\un_{\{|n|>N\}}g(H)G_z\|^2\,dE$, since $(H-z)^{-1}\psi_g=g(H)G_z$. Minkowski's inequality in $L^2(\R,dE/(\pi T);\ell^2(\Z))$, $(\pi T)^{-1}\int\|G_z\|^2dE=1$ and $\int(1+|E|)^{-2}dE<\infty$ give the claim. The last two statements are immediate from the definition of $c_J$.
+\end{proof}
+
+\begin{theorem}[Energy by energy]\label{thm:U3}
+Let $\beta=\beta(\alpha)<\infty$, $E_0\in\Sigma$ and $0<\gamma<\ell_*/2$. Let $g\in C_c^\infty(\R)$ be real, supported in $\{E:|\ell(E)-\ell(E_0)|<\gamma\}$, with $\psi_g\ne0$. Then for every $p>0$,
+\[
+F_\beta\bigl(\ell(E_0)+\gamma\bigr)\le\beta^+_{\psi_g}(p)\le F_\beta\bigl(\ell(E_0)-\gamma\bigr).
+\]
+\end{theorem}
+
+Letting the support of $g$ shrink to an energy $E$, a packet filtered near $E$ spreads, in every moment, with exponent $F_\beta(\ell(E))$. The statement concerns a family of filters of shrinking width; a fixed filter of positive width need not have a single exponent of this form.
+
+\begin{proof}
+We normalize $\psi=\psi_g/\|\psi_g\|$; this changes no exponent.
+
+\emph{Upper bound.} Put $\ell=\ell(E_0)-\gamma$, which is positive. We verify (M1) and (M2$_\ell$) for $H=H_{v,\alpha,\theta}$ and $\psi$, and apply Theorem~\ref{thm:covering}. Since $e^{-itH}\psi_g=g(H)e^{-itH}\delta_0$, splitting $e^{-itH}\delta_0$ at $|n|=N/2$ gives
+\[
+P_{\psi_g}(N,T)\le2\bigl\|\un_{\{|n|>N\}}g(H)\un_{\{|n|\le N/2\}}\bigr\|^2+2\|g\|_\infty^2P(N/2,T)\le C_MN^{-M}+2\|g\|_\infty^2P(N/2,T)
+\]
+for every $M$, by Lemma~\ref{lem:QL} and the Schur test. Theorem~\ref{thm:tI-M1} gives (M1). For (M2$_\ell$) fix $c,d,B,\eps,m$. Apply Theorem~\ref{thm:tI-window} with $\eps/2$ in place of $\eps$, with $m+1$ in place of $m$, and with $\xi<\min\{\eps/2,c,d,\ell_*,1,\eta_0\}/100$ and $\zeta<\xi/100$; Lemma~\ref{lem:tI-Wgood} provides (W) at $(q_n,q_n\theta,\tau_{q_n})$ for large $n$ with $b_n\ge c$. Let
+\[
+R^g(T)=e^{11\xi q_n}\Bigl[1+\min\bigl(Te^{-\ell q_n},\,e^{(b_n-\ell)_+q_n}\bigr)\Bigr]\le R_n(T).
+\]
+For $E\in\supp g$ we have $\ell(E)>\ell$. If moreover $\dist(E,\Sigma)\le e^{-\xi q_n}$, part~2 of Theorem~\ref{thm:tI-window} gives $\|\un_{\{|n|>R^g(T)\}}G_z\|\le4T^{-m-1}$, since the radius there is nonincreasing in $\ell(E)$. If $\dist(E,\Sigma)\ge e^{-\xi q_n}$, part~3 gives the same bound for large $n$, since $R^g(T)\ge e^{11\xi q_n}$. Lemma~\ref{lem:filter} with an integer $J\ge\max\{1,\lceil m\rceil\}$ and an integer $M\ge mB/(11\xi)$, together with $|c_J|\le C$ and $c_J=0$ off $\supp g$, gives
+\[
+P_{\psi_g}\bigl(R^g(T),T\bigr)\le2\,\frac{C|\supp g|}{\pi T}\,16T^{-2m-2}+2\bigl(CR^g(T)^{-M}+CT^{-J}\bigr)^2\le CT^{-m}
+\]
+for $e^{dq_n}\le T\le e^{Bq_n}$, because $R^g(T)\ge T^{11\xi/B}$. This is (M2$_\ell$). Theorem~\ref{thm:covering} gives $\alpha^+_{u,\psi}\le F_\beta(\ell)$, also when $\beta=0$, and $\beta^+_\psi(p)\le\alpha^+_{u,\psi}$.
+
+\emph{Lower bound.} We may assume $\ell(E_0)+\gamma<\beta$. Since $\int g^2d\mu_\theta=\|\psi_g\|^2>0$, there is $E_1\in\supp\mu_\theta$ with $g(E_1)\ne0$, and $\ell(E_1)<\ell(E_0)+\gamma$. Choose $\gamma_1>0$ with $\ell(E_1)+2\gamma_1\le\ell(E_0)+\gamma$ and $\ell(E_1)+30\gamma_1<\beta$. Choose compact intervals $K'\subset\operatorname{int}K$, with $E_1$ in the interior of $K'$, such that $|\ell-\ell(E_1)|<\gamma_1$ and $|g|\ge g_1:=|g(E_1)|/2$ on $K$. Choose $\tilde g\in C_c^\infty$ with $0\le\tilde g\le1$, $\supp\tilde g\subset K'$ and $\tilde g>0$ near $E_1$. Let $\mathcal N$ be an infinite set with $b_n\to\beta$ and $b_n\ge\ell(E_1)+30\gamma_1$. As in the proof of Theorem~\ref{thm:U2}, Lemma~\ref{lem:arcsineloc} and Proposition~\ref{prop:fraction}, with $a=\ell(E_1)+\gamma_1$, give $c_1>0$ with
+\[
+\frac1{\pi T_n}\int_{I_n}\bigl\|\un_{\{|k|>N_n\}}G_z\bigr\|^2\,dE\ge f_0c_1,\qquad N_n=\bigl\lfloor e^{(b_n-\ell(E_1)-2\gamma_1)q_n}\bigr\rfloor,\quad T_n=|\delta_n|^{-1},
+\]
+for large $n\in\mathcal N$, where $I_n\subset K$. On $K$, $|c_J(E,T_n)|\ge g_1-C/T_n\ge g_1/2$ for large $n$. Lemma~\ref{lem:filter} with $J=M=1$ gives
+\[
+P_{\psi_g}(N_n,T_n)^{1/2}\ge\frac{g_1}2(f_0c_1)^{1/2}-CN_n^{-1}-CT_n^{-1}\ge c_2>0
+\]
+for large $n\in\mathcal N$, because $N_n\to\infty$. Hence $M_{p,\psi_g}(T_n)\ge c_2^2N_n^p$, and as before $\beta^+_{\psi_g}(p)\ge1-(\ell(E_1)+2\gamma_1)/\beta\ge1-(\ell(E_0)+\gamma)/\beta$.
+\end{proof}
+
+A finite partition of unity in energy turns the filtered upper bounds into a bound for the unfiltered packet, which closes the gap in Theorem~\ref{thm:U2}.
+
+\begin{corollary}[The complete moment law]\label{cor:allmoments}
+Let $0<\beta=\beta(\alpha)<\infty$ and $\theta\in G^v_\alpha$. Then
+\[
+\beta^+(p)=F_\beta(\ell_\theta)=F_\beta(\ell_*)\qquad\text{for every }p>0.
+\]
+In particular, if $\ell_*<\beta$, then $\ell_\theta=\ell_*$: the Lyapunov exponent attains its minimum over the spectrum on the support of $\mu_\theta$.
+\end{corollary}
+
+\begin{proof}
+Let $S=\supp\mu_\theta$, a compact subset of $\Sigma$, and let $0<r<\ell_*/2$. Since $\ell$ is continuous, every $E\in S$ has an open interval around it on which $|\ell-\ell(E)|<r$. Finitely many such intervals, centred at points $E_1,\dots,E_k\in S$, cover $S$. Take real functions $g_i\in C_c^\infty(\R)$, each supported in the $i$-th interval, with $\sum_ig_i=1$ on $S$. Then $\supp g_i\subset\{|\ell-\ell(E_i)|<r\}$, and $\sum_ig_i(H)\delta_0=\delta_0$, because $\|(\sum_ig_i-1)(H)\delta_0\|^2=\int|\sum_ig_i-1|^2\,d\mu_\theta=0$. Put $\psi_i=g_i(H)\delta_0$ and discard the indices with $\psi_i=0$. By Theorem~\ref{thm:U3} and $\ell(E_i)\ge\ell_\theta$,
+\[
+\beta^+_{\psi_i}(p)\le F_\beta\bigl(\ell(E_i)-r\bigr)\le F_\beta(\ell_\theta-r).
+\]
+At every time, the Cauchy--Schwarz inequality for the finite sum $\langle\delta_j,e^{-itH}\delta_0\rangle=\sum_i\langle\delta_j,e^{-itH}\psi_i\rangle$ gives $|\langle\delta_j,e^{-itH}\delta_0\rangle|^2\le k\sum_i|\langle\delta_j,e^{-itH}\psi_i\rangle|^2$. Multiplying by $|j|^p$, summing over $j$ and averaging in time,
+\[
+M_p(T)\le k\sum_iM_{p,\psi_i}(T),
+\]
+where $M_{p,\psi_i}$ are the moments of the unnormalized vectors. Since the sum is finite, $\beta^+(p)\le\max_i\beta^+_{\psi_i}(p)\le F_\beta(\ell_\theta-r)$. Letting $r\to0$ and using the continuity of $F_\beta$ gives $\beta^+(p)\le F_\beta(\ell_\theta)$, and Theorem~\ref{thm:U2} gives equality. Hence $\au=\sup_p\beta^+(p)=F_\beta(\ell_\theta)$, while $\au=F_\beta(\ell_*)$ by Theorem~\ref{thm:tI-law}. If $\ell_*<\beta$, then $F_\beta(\ell_*)>0$ and $F_\beta$ is strictly decreasing on $(-\infty,\beta]$, so $F_\beta(\ell_\theta)=F_\beta(\ell_*)$ forces $\ell_\theta=\ell_*$. If $\ell_*\ge\beta$, both values are zero.
+\end{proof}
+
+So at every phase of $G^v_\alpha$ the fastest-tail exponent, every moment exponent, and the exponent of the fixed fraction in Theorem~\ref{thm:U2} are all governed by the same number $F_\beta(\ell_*)$.
+
+\begin{theorem}[Local dimensions]\label{thm:localdim}
+Let $0<\beta=\beta(\alpha)<\infty$. Then
+\[
+d^+_{\mu_\theta}(E)=F_\beta\bigl(\ell(E)\bigr)\qquad\text{for }\mu_\theta\text{-almost every }E.
+\]
+Consequently $\dim_P^+(\mu_\theta)=F_\beta(\ell_\theta)$ and $\dim_P^-(\mu_\theta)=F_\beta(\ell^\theta)$. In particular $\dim_P^-(\mu_\theta)=\dim_P^+(\mu_\theta)$ if and only if $F_\beta\circ\ell$ is constant $\mu_\theta$-almost everywhere.
+\end{theorem}
+
+\begin{proof}
+\emph{Lower bound.} Fix $\gamma>0$. For a rational $E_0$ with $\ell(E_0)+30\gamma<\beta$ and a rational $\rho>0$ such that $|\ell-\ell(E_0)|<\gamma$ on $K=[E_0-2\rho,E_0+2\rho]$, put $K'=[E_0-\rho,E_0+\rho]$. By continuity of $\ell$, the interiors of these countably many intervals $K'$ cover $\{E:\ell(E)+31\gamma<\beta\}$. Fix one of them, let $g\ge0$ be smooth and positive exactly on $\operatorname{int}K'$, and let $\mathcal N$ be infinite with $b_n\to\beta$ and $b_n\ge\ell(E_0)+30\gamma$. Lemma~\ref{lem:arcsineloc} gives the weak convergence of $(\Delta_n)_*(g\mu_\theta)$ to $\sigma\int g\,d\mu_\theta$. The argument of Theorem~\ref{thm:U1}(2), with Proposition~\ref{prop:fraction}(2) for $a=\ell(E_0)+\gamma$, gives $d^+_{\mu_\theta}(E)\ge1-(\ell(E_0)+3\gamma/2)/\beta\ge1-(\ell(E)+3\gamma)/\beta$ for $\mu_\theta$-almost every $E\in\operatorname{int}K'$. Letting $\gamma\to0$ along a sequence gives $d^+_{\mu_\theta}\ge F_\beta\circ\ell$ almost everywhere.
+
+\emph{Upper bound.} We use the theorem of Barbaroux, Germinet and Tcheremchantsev~\cite[Theorem~1 and Proposition~1(iii)]{BGT2000}: for a bounded operator on $\ell^2(\Z)$ and a normalized initial vector $\psi$ with compactly supported spectral measure, the exponents of the Ces\`aro-averaged moments satisfy $\beta^+_\psi(p)\ge D^+_{\mu_\psi}(1/(1+p))\ge\dim_P^+(\mu_\psi)$, where $D^+$ is the upper generalized R\'enyi dimension. No finite-support hypothesis on $\psi$ is made. Since $(2/T)e^{-2t/T}\ge(2e^{-2}/T)\un_{[0,T]}(t)$, our Abel-averaged moments dominate $2e^{-2}$ times the Ces\`aro-averaged ones, so the same inequality holds for our $\beta^+_\psi(p)$.
+
+Fix $\gamma\in(0,\ell_*/2)$, a countable dense set $\mathcal D\subset\Sigma$, and for $E_0\in\mathcal D$ and rational $\rho>0$ with $|\ell-\ell(E_0)|<\gamma$ on $K=[E_0-2\rho,E_0+2\rho]$ put $K''=[E_0-\rho,E_0+\rho]$. By continuity of $\ell$ the interiors of these intervals cover $\Sigma$. Fix one, and let $g\in C_c^\infty$ be real with $\supp g\subset\operatorname{int}K$ and $g=1$ on $K''$. If $\psi_g=0$, then $\mu_\theta(K'')=0$. Otherwise Theorem~\ref{thm:U3} and the inequality above give $\dim_P^+(g^2\mu_\theta)\le F_\beta(\ell(E_0)-\gamma)$. For $E\in\operatorname{int}K''$ the measures $g^2\mu_\theta$ and $\mu_\theta$ agree near $E$, so they have the same upper local dimension at $E$. Hence $d^+_{\mu_\theta}(E)\le F_\beta(\ell(E_0)-\gamma)\le F_\beta(\ell(E)-2\gamma)$ for $\mu_\theta$-almost every $E\in\operatorname{int}K''$, and so for $\mu_\theta$-almost every $E$. Let $\gamma\to0$ and use the continuity of $F_\beta$.
+
+The consequences follow from $\dim_P^+=\operatorname{ess\,sup}d^+$, $\dim_P^-=\operatorname{ess\,inf}d^+$, the monotonicity of $F_\beta$, and the identification of $\ell_\theta,\ell^\theta$ with the essential extrema of $\ell$.
+\end{proof}
+
+For $\beta(\alpha)=0$ every spectral measure $\mu_\theta$ has $d^+_{\mu_\theta}=0$ almost everywhere, at every phase, by Theorem~\ref{thm:tI-law} and the inequality of~\cite{BGT2000}. The equality extends to all spectral measures.
+
+\begin{corollary}\label{cor:allmeasures}
+Let $0<\beta(\alpha)<\infty$ and $\theta\in G^v_\alpha\cap(G^v_\alpha-\alpha)$. For every $\varphi\in\ell^2(\Z)$ with $\mu_\varphi\ne0$, $d^+_{\mu_\varphi}(E)=F_\beta(\ell(E))$ for $\mu_\varphi$-almost every $E$. In particular $\dim_P^+(\mu_\varphi)\le F_\beta(\ell_*)$.
+\end{corollary}
+
+\begin{proof}
+Let $\mu_0$ and $\mu_1$ be the spectral measures of $\delta_0$ and $\delta_1$ at the phase $\theta$; as in the proof of Theorem~\ref{thm:U1}, $\mu_1=\mu_{\theta+\alpha}$. Theorem~\ref{thm:localdim} at the phases $\theta$ and $\theta+\alpha$ gives $d^+_{\mu_i}=F_\beta\circ\ell$ $\mu_i$-almost everywhere, for $i=0,1$. Let $\nu=\mu_0+\mu_1$, and recall the differentiation theorem for Radon measures~\cite[Theorem~2.12 and Corollary~2.14]{Mattila1995}: if $\mu\ll\nu$, then at $\mu$-almost every $E$ the ratio $\mu([E-r,E+r])/\nu([E-r,E+r])$ converges as $r\to0$ to the density $d\mu/d\nu(E)\in(0,\infty)$, and at such $E$ taking logarithms gives $d^+_\mu(E)=d^+_\nu(E)$. Applied to $\mu=\mu_i$, this gives $d^+_\nu=d^+_{\mu_i}=F_\beta\circ\ell$ on a set $A_i$ of full $\mu_i$-measure. The complement of $A_0\cup A_1$ is null for $\mu_0$ and for $\mu_1$, hence for $\nu$, so $d^+_\nu=F_\beta\circ\ell$ $\nu$-almost everywhere. The pair $\delta_0,\delta_1$ is cyclic, so $\mu_\varphi\ll\nu$, and the differentiation theorem applied to $\mu=\mu_\varphi$ gives $d^+_{\mu_\varphi}=d^+_\nu=F_\beta\circ\ell$ $\mu_\varphi$-almost everywhere. The last claim follows from $\ell\ge\ell_*$ on $\Sigma$.
+\end{proof}
+
+For the almost Mathieu operator $\ell=\log\lambda$ on $\Sigma$, so Corollary~\ref{cor:allmeasures} shows that every nonzero spectral measure is exactly packing-dimensional for $\theta\in\Ga\cap(\Ga-\alpha)$, in agreement with the companion paper~\cite{DMamo}. For a type~I potential with $\ell_\theta<\ell^\theta$ and $\ell_\theta<\beta(\alpha)$, Theorem~\ref{thm:localdim} gives $\dim_P^-(\mu_\theta)<\dim_P^+(\mu_\theta)$: the upper local dimension is a nonconstant explicit function of the energy.

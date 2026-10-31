@@ -1,0 +1,259 @@
+\section{Beyond type I: a conditional complete law}\label{sec:beyond}
+
+For a type~I potential the rational discriminant $t_q(\cdot,E)$ has exactly two zeros in a strip of width proportional to $q$, and near the drifting phase it behaves like a single cosine (Section~\ref{sec:typeI}). When the acceleration is at least two somewhere on the spectrum, $t_q(\cdot,E)$ has more zeros near the real axis, and they may cluster. The dynamical argument of Theorem~\ref{thm:tI-window} needs only one geometric property: near the drifting phase, the zero of $t_q(\cdot,E)$ that the phase crosses is not exponentially close to another zero at the same energy. This section makes that property precise, shows that it implies the transport law for every real-analytic potential with positive Lyapunov exponent on its spectrum, and reduces it, for an explicit two-harmonic family, to a large-deviation estimate for one polynomial.
+
+Throughout this section $v$ is real analytic and $H_{v,\alpha}$ is supercritical, but no type, evenness, primitivity or acceleration hypothesis is made. We use the notation of Section~\ref{sec:typeI}: $t_q(x,E)$ is the rational discriminant in the variable $x=q\theta$, $\ell=L$ is the Lyapunov exponent, $\ell_*=\min_\Sigma\ell$, and $\mathcal N_q(\xi)=\{E\in\R:\dist(E,\Sigma)\le e^{-\xi q}\}$. Lemmas~\ref{lem:tI-bc} and~\ref{lem:tI-Q}, Corollary~\ref{cor:tI-bounds} and Theorem~\ref{thm:tI-window} do not use the type~I hypothesis. Put
+\[
+J=[-\|v\|_\infty-3,\ \|v\|_\infty+3],\qquad J_q=\{E\in\R:\dist(E,\Sigma)<1/q\}.
+\]
+Then $\Sigma\subset J$, and $J_q\subset J$ and $\mathcal N_q(\xi)\subset J_q$ for large $q$. The Lyapunov exponent is positive on $\Sigma$ by hypothesis and off $\Sigma$ by (A3), and it is continuous, so $\gamma_J:=\min_J\ell>0$. By the remark after Corollary~\ref{cor:tI-bounds}, for every $\zeta>0$ and all large $q$,
+\begin{equation}\label{eq:UB}
+|\partial_E^k\partial_x^jt_q(x,E)|\le k!\,(2q)^ke^{q(\ell(E)+\zeta)}\qquad(E\in J,\ x\in\R,\ k\ge0,\ j=0,1).
+\end{equation}
+Distances between points of $\C/\Z$ are taken in the metric of the cylinder.
+
+\subsection{Clusters of zeros and weak separation}\label{sec:WXS}
+
+\begin{definition}\label{def:WXS}
+Let $q$ be a convergent denominator and $\eps>0$, and put $\tau=e^{-\eps q}$. For $E\in\R$ let $Z_q(E)$ be the multiset of zeros of $t_q(\cdot,E)$ in $\{x\in\C/\Z:|\operatorname{Im}x|<1\}$, counted with multiplicity. Let
+\[
+B_q(\eps)=\bigl\{x_0\in\T:\ \text{for some }E\in J_q,\ Z_q(E)\text{ has two entries }z,z'\text{ with }|z-x_0|<\tau\text{ and }|z-z'|<\tau\bigr\}.
+\]
+We say that \emph{WXS$(v,\alpha)$ holds} if for every $\eps>0$ and every $c>0$, almost every $\theta\in\T$ has an index $n_0$ such that $q_n\theta\bmod1\notin B_{q_n}(\eps)$ for all $n\ge n_0$ with $b_n\ge c$.
+\end{definition}
+
+The set $B_q(\eps)$ is open, since for fixed witnesses $E,z,z'$ the condition on $x_0$ is open, and it decreases as $\eps$ increases. Since $\theta\mapsto q_n\theta$ preserves Lebesgue measure, the Borel--Cantelli lemma shows that WXS$(v,\alpha)$ holds if $\sum_{n:\,b_n\ge c}|B_{q_n}(\eps)|<\infty$ for all $\eps,c>0$. If $\beta(\alpha)=0$, only finitely many $n$ have $b_n\ge c$, and WXS$(v,\alpha)$ holds trivially.
+
+WXS is a \emph{horizontal} condition: it concerns the zeros of $t_q(\cdot,E)$ as functions of the phase at one fixed energy, real or complex. It excludes a real double zero (a turning point of a band centre) near $x_0$, two band centres crossing the energy $E$ at nearby phases, and a pair of complex zeros close to the real axis. It is different from a \emph{vertical} separation of band centres $E_b(x)$ at a fixed phase; Remark~\ref{rem:bandproduct} shows how the two are related.
+
+\subsection{Factorization}\label{sec:EF}
+
+\begin{lemma}\label{lem:trigpot}
+Let $v(x)=\sum_{|k|\le d}v_ke^{2\pi ikx}$ be a real trigonometric polynomial with $v_d\ne0$, and let $p/q$ be a convergent of $\alpha$. Then $t_q(x,E)=\sum_{|k|\le d}c_{q,k}(E)e^{2\pi ikx}$, and
+\[
+c_{q,\pm d}(E)=(-v_{\pm d})^q\,e^{\pm\pi idp(q-1)}\qquad\text{for every }E\in\C .
+\]
+In particular the extreme coefficients do not depend on $E$, and $|c_{q,\pm d}|=|v_d|^q$.
+\end{lemma}
+
+The energy independence of the extreme coefficients is due to Shamis~\cite[Propositions~3.1 and~3.2]{Shamis2011}; we include the short computation in our normalization.
+
+\begin{proof}
+Each one-step matrix has entries of degree at most $d$ in $e^{2\pi i\varphi}$, so $\Delta_\varphi(E)$ is a trigonometric polynomial of degree at most $qd$ in $\varphi$. It is invariant under $\varphi\mapsto\varphi+1/q$, so only the harmonics $e^{2\pi imq\varphi}=e^{2\pi imx}$ with $|m|\le d$ survive. In the expansion of the trace as a sum over closed index paths, degree $qd$ in $e^{2\pi i\varphi}$ forces the $(1,1)$ entry and its top harmonic $-v_de^{2\pi id(\varphi+jp/q)}$ at every step $j=0,\dots,q-1$. Their product is $(-v_d)^qe^{2\pi idq\varphi}e^{2\pi idp\,q(q-1)/(2q)}=(-v_d)^qe^{2\pi idx}e^{\pi idp(q-1)}$. The coefficient of $e^{-2\pi idx}$ is computed in the same way.
+\end{proof}
+
+For a real trigonometric polynomial $T(x)=\sum_{|k|\le K'}c_ke^{2\pi ikx}$ of exact degree $K'\ge1$ (so $c_{-k}=\overline{c_k}$ and $c_{K'}\ne0$) write $\zeta_1,\dots,\zeta_{2K'}$ for its zeros in $\C/\Z$, counted with multiplicity, and $m(T)=\int_0^1\log|T(y)|\,dy$. Put
+\[
+\mathsf g(u)=|\sin\pi u|\,e^{-\pi|\operatorname{Im}u|}\qquad(u\in\C/\Z),\qquad c_0=2e^{-\pi}.
+\]
+
+\begin{lemma}[Factorization]\label{lem:EF}
+Let $T$ be as above.
+\begin{enumerate}
+\item $\sum_k\operatorname{Im}\zeta_k=0$, and with suitable representatives $\zeta_k\in\C$, $T(x)=c_{K'}(2i)^{2K'}e^{\pi i\sum_k\zeta_k}\prod_k\sin\pi(x-\zeta_k)$.
+\item $c_0\min\{\dist(u,\Z),1\}\le\mathsf g(u)\le1$, and $m(T)=\log|c_{K'}|+\pi\sum_k|\operatorname{Im}\zeta_k|$.
+\item For every $x\in\C$, $|T(x)|\ge4^{K'}e^{m(T)-2\pi K'|\operatorname{Im}x|}\prod_k\mathsf g(x-\zeta_k)$, with equality for real $x$.
+\item At a simple real zero $\zeta_1$, $|T'(\zeta_1)|=\pi4^{K'}e^{m(T)-\Phi}$ with $\Phi=-\sum_{k\ge2}\log\mathsf g(\zeta_1-\zeta_k)\ge0$.
+\item $m(T)\ge\log\max_{x\in\T}|T(x)|-K'\log4$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+1. With $w=e^{2\pi ix}$, $w^{K'}T$ is a polynomial of degree $2K'$ in $w$ with nonzero constant coefficient $c_{-K'}$, so its roots $w_k=e^{2\pi i\zeta_k}$ are nonzero, and $\prod_kw_k=c_{-K'}/c_{K'}$ has modulus one. Hence $\sum_k\log|w_k|=0$, which is $\sum_k\operatorname{Im}\zeta_k=0$. The factorization follows from $e^{2\pi ix}-e^{2\pi i\zeta}=e^{\pi i(x+\zeta)}\,2i\sin\pi(x-\zeta)$.
+
+2. Write $u=a+ib$. Since $|\sin\pi u|^2=\sin^2\pi a+\sinh^2\pi b\le\cosh^2\pi b$, $\mathsf g\le1$. If $|b|\ge1$ then $|\sin\pi u|\ge\sinh\pi|b|\ge0.49e^{\pi|b|}$, so $\mathsf g(u)\ge0.49\ge c_0$. If $|b|<1$ then $|\sin\pi u|^2\ge4\dist(a,\Z)^2+\pi^2b^2\ge4\dist(u,\Z)^2$, so $\mathsf g(u)\ge2e^{-\pi}\dist(u,\Z)$. The classical integral $\int_0^1\log|\sin\pi(y-\zeta)|\,dy=\pi|\operatorname{Im}\zeta|-\log2$ and part~1, where $|e^{\pi i\sum\zeta_k}|=1$, give the formula for $m(T)$.
+
+3. By part~1, $|T(x)|=|c_{K'}|4^{K'}\prod_k|\sin\pi(x-\zeta_k)|$, and $|\sin\pi(x-\zeta)|=\mathsf g(x-\zeta)e^{\pi|\operatorname{Im}(x-\zeta)|}\ge\mathsf g(x-\zeta)e^{\pi|\operatorname{Im}\zeta|-\pi|\operatorname{Im}x|}$, with equality for real $x$. Use part~2.
+
+4. Differentiate the product of part~1 at $\zeta_1$, and use part~3 for the remaining factors, with $\operatorname{Im}\zeta_1=0$.
+
+5. Evaluate part~3 at a real point where $|T|$ is maximal and use $\mathsf g\le1$.
+\end{proof}
+
+\begin{remark}[Band products]\label{rem:bandproduct}
+Let $v$ be a trigonometric polynomial of degree $d$, $E$ real, and let $x$ be a simple real zero of $t_q(\cdot,E)$, so that $E=E_b(x)$ for one band centre. Since $t_q(x,\cdot)$ is monic with the simple roots $E_{b'}(x)$, $\partial_Et_q(x,E)=\prod_{b'\ne b}(E_b(x)-E_{b'}(x))$, and $\partial_xt_q=-\partial_Et_q\,E_b'$ by Lemma~\ref{lem:tI-bc}. Lemma~\ref{lem:EF}(4) therefore gives the exact finite-period identity
+\[
+\log|E_b'(x)|+\sum_{b'\ne b}\log|E_b(x)-E_{b'}(x)|=\log(\pi4^d)+m\bigl(t_q(\cdot,E)\bigr)-\Phi(x,E),
+\]
+where $\Phi(x,E)$ is the quantity of Lemma~\ref{lem:EF}(4) for $t_q(\cdot,E)$. The horizontal loss $\Phi$ involves the distances from $x$ to all other phase zeros at the same energy. Vertical gaps $|E_b(x)-E_{b'}(x)|$ enter only through the full product over all other bands, together with the slope $E_b'(x)$.
+\end{remark}
+
+\subsection{Truncation and a lower bound}\label{sec:LB}
+
+Recall that $v$ extends holomorphically to $|\operatorname{Im}x|<\delta_v$ and that $0<\delta_1<\delta_v$ is fixed.
+
+\begin{lemma}[Truncation]\label{lem:TR}
+Let $\Gamma=\max\{\log\|T(E,x)\|:E\in J,\ |\operatorname{Im}x|\le\delta_1\}$ and $K=\lceil(\Gamma+2)/(2\pi\delta_1)\rceil$. For $E\in J$ write $t_q(x,E)=\sum_kc_{q,k}(E)e^{2\pi ikx}$ and $T_{q,E}(x)=\sum_{|k|\le K}c_{q,k}(E)e^{2\pi ikx}$. For all large $q$, every $E\in J$ and every $x$ with $|\operatorname{Im}x|\le1$,
+\[
+|t_q(x,E)-T_{q,E}(x)|\le e^{-q},
+\]
+and $|\partial_x(t_q-T_{q,E})(x)|\le2e^{-q}$ for $|\operatorname{Im}x|\le1/2$. If $v$ is a trigonometric polynomial of degree $d$, we take $K=d$ and $T_{q,E}=t_q(\cdot,E)$.
+\end{lemma}
+
+This is the truncation argument of Avila~\cite[Section~2, equations (10)--(11)]{Avila2015}, reproduced by Shamis~\cite[Lemma~2.1]{Shamis2011}.
+
+\begin{proof}
+For $|\operatorname{Im}x|\le q\delta_1$ the $q$ factors of the rational product have phases with imaginary part at most $\delta_1$, so $|t_q(x,E)|\le2e^{\Gamma q}$. Shifting the contour of the Fourier integral to $\operatorname{Im}x=\mp q\delta_1$ gives $|c_{q,k}(E)|\le2e^{\Gamma q-2\pi|k|q\delta_1}$. For $|\operatorname{Im}x|\le1$,
+\[
+\sum_{|k|>K}|c_{q,k}(E)|e^{2\pi|k|}\le4\sum_{k\ge K+1}e^{\Gamma q-2\pi k(q\delta_1-1)}\le8e^{2\pi(K+1)}e^{(\Gamma-2\pi(K+1)\delta_1)q}\le8e^{2\pi(K+1)}e^{-2q}
+\]
+for large $q$, since $2\pi K\delta_1\ge\Gamma+2$. This is at most $e^{-q}$ for large $q$. The derivative bound follows from Cauchy's estimate on disks of radius $1/2$. For a trigonometric polynomial of degree $d$, Lemma~\ref{lem:trigpot} shows that $t_q(\cdot,E)$ has no harmonics beyond $d$.
+\end{proof}
+
+For real $E$, $T_{q,E}$ is a real trigonometric polynomial of some exact degree $K'\le K$; Lemma~\ref{lem:LB} shows that it is not identically zero.
+
+\begin{lemma}[Lower bound for the mean]\label{lem:LB}
+For every $\eta>0$ there is $q_0$ such that for every convergent denominator $q\ge q_0$ and every $E\in J$,
+\[
+m(T_{q,E})\ge q\bigl(\ell(E)-\eta\bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+For a rational $p/q$ let $L(p/q,E)=q^{-1}\int_\T\log\rho\bigl(A^{(p/q)}_q(E,\varphi)\bigr)\,d\varphi$, where $\rho$ is the spectral radius; this is the Lyapunov exponent of the frequency $p/q$, averaged over the phase. Bourgain and Jitomirskaya proved that $(\omega,E)\mapsto L(\omega,E)$, with this definition at rational $\omega$, is jointly continuous at $(\alpha,E)$ for every irrational $\alpha$ and real $E$~\cite[Theorem~1]{BourgainJitomirskaya2002}. By compactness of $J$, $L(p_n/q_n,E)\to\ell(E)$ uniformly on $J$. For $M\in SL(2,\R)$, $\rho(M)\le\max\{1,|\tr M|\}$: the spectral radius is one if $M$ is elliptic or parabolic, and smaller than $|\tr M|$ if $M$ is hyperbolic. Since $\Delta_\varphi$ is $1/q$-periodic, $qL(p/q,E)\le\log\max\{1,\max_x|t_q(x,E)|\}$. It suffices to prove the lemma for $\eta_1=\min\{\eta,\gamma_J\}$, since its conclusion for $\eta_1$ implies the one for $\eta$. For large $q$, $L(p/q,E)\ge\ell(E)-\eta_1/2\ge\gamma_J/2>0$ on $J$, so $\max_x|t_q(x,E)|\ge e^{q(\ell(E)-\eta_1/2)}$ and $\max_x|T_{q,E}(x)|\ge\frac12e^{q(\ell(E)-\eta_1/2)}$ by Lemma~\ref{lem:TR}. Lemma~\ref{lem:EF}(5) gives $m(T_{q,E})\ge q(\ell(E)-\eta_1/2)-\log2-K\log4\ge q(\ell(E)-\eta_1)$ for large $q$.
+\end{proof}
+
+\subsection{Geometry at separated phases}\label{sec:NG}
+
+\begin{lemma}\label{lem:NGe}
+Let $K$ be as in Lemma~\ref{lem:TR}, and put
+\[
+a_0=\frac{1+\gamma_J}{8K},\qquad\rho_K=\frac1{148(2K-1)},\qquad\lambda_K=\frac12\Bigl(\frac{c_0\rho_K}8\Bigr)^{2K}.
+\]
+Let $0<\eps<a_0/2$ and $0<\eta\le\gamma_J/2$. For all large $q$, every $x_0\in\T\setminus B_q(\eps)$ and every $E\in J_q$, with $\tau=e^{-\eps q}$ and $S_0=\{x\in\T:|x-x_0|\le\tau/16\}$, one of the following holds.
+\begin{enumerate}
+\item[(i)] $|t_q(x,E)|\ge\lambda_Ke^{q(\ell(E)-\eta)}\tau^{2K}$ for every $x\in S_0$.
+\item[(ii)] $t_q(\cdot,E)$ has a simple real zero $z_E$ with $|z_E-x_0|<\tau/2$. On $I_E=\{x\in\R:|x-z_E|\le\rho_K\tau/4\}$ the derivative $\partial_xt_q(\cdot,E)$ has a constant sign and modulus at least $S_E:=\frac\pi4e^{q(\ell(E)-\eta)}(c_0\tau/2)^{2K-1}$, and $|t_q(x,E)|\ge\lambda_Ke^{q(\ell(E)-\eta)}\tau^{2K}$ for $x\in S_0\setminus I_E$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $q$ be large, $x_0\notin B_q(\eps)$, $E\in J_q$, and write $T=T_{q,E}$, of exact degree $K'\le K$. By Lemma~\ref{lem:LB}, $m(T)\ge q(\ell(E)-\eta)$, and $\ell(E)-\eta\ge\gamma_J/2$. If $K'=0$, then $T$ is a constant of modulus $e^{m(T)}$, $t_q(\cdot,E)$ has no zeros in $|\operatorname{Im}x|\le1/2$, and (i) holds. Assume $K'\ge1$.
+
+\emph{Matching of zeros.} Let $h=e^{-a_0q}$ and let $U$ be the union of the open disks of radius $h$ about the zeros of $T$ in $\C/\Z$. On the boundary of $U$, and outside $U$, every zero of $T$ is at distance at least $h$, so by Lemma~\ref{lem:EF}(2),(3), for $|\operatorname{Im}x|\le1/2$,
+\[
+|T(x)|\ge4^{K'}e^{m(T)-\pi K'}(c_0h)^{2K'}\ge e^{-\pi K}c_0^{2K}e^{q(\gamma_J/2-(1+\gamma_J)/4)}>e^{-q}\ge|t_q(x,E)-T(x)|
+\]
+for large $q$, since $\gamma_J/2-(1+\gamma_J)/4>-1$. A component $W$ of $U$ has diameter at most $4Kh$. If it meets $\{|\operatorname{Im}x|\le1/4\}$, its closure lies in $\{|\operatorname{Im}x|<1/2\}$, and Rouch\'e's theorem shows that $t_q(\cdot,E)$ and $T$ have the same number of zeros in $W$. Moreover $t_q(\cdot,E)$ has no zeros in $\{|\operatorname{Im}x|\le1/4\}\setminus U$. Since $\eps<a_0/2$, $8Kh\le\tau/8$ for large $q$.
+
+\emph{Case A: $t_q(\cdot,E)$ has no zero $z$ with $|z-x_0|<\tau/2$.} A zero $\zeta$ of $T$ with $|\zeta-x_0|<3\tau/8$ would lie in a component meeting $\{|\operatorname{Im}x|\le1/4\}$, which would contain a zero of $t_q(\cdot,E)$ within $3\tau/8+4Kh<\tau/2$ of $x_0$. So every zero of $T$ is at distance at least $3\tau/8$ from $x_0$, hence at least $\tau/4$ from $S_0$. Lemma~\ref{lem:EF}(3) gives $|T|\ge e^{q(\ell(E)-\eta)}(c_0\tau/4)^{2K}$ on $S_0$, and $|t_q|\ge|T|-e^{-q}$ gives (i), since $\ell(E)-\eta-2K\eps>-1$.
+
+\emph{Case B: $t_q(\cdot,E)$ has a zero $z$ with $|z-x_0|<\tau/2$.} Since $x_0\notin B_q(\eps)$, no other entry $z'$ of $Z_q(E)$ satisfies $|z-z'|<\tau$. In particular $z$ is simple, and $z$ is real: otherwise $\bar z$ would be a second entry with $|\bar z-z|=2|\operatorname{Im}z|<\tau$. Let $W$ be the component of $U$ containing $z$. It contains no other zero of $t_q(\cdot,E)$, because its diameter is less than $\tau$, so it contains exactly one zero $\zeta$ of $T$, which is simple, with $|\zeta-z|\le4Kh$. Since $U$ is symmetric under conjugation and $W$ contains the real point $z$, $\overline W=W$, so $\bar\zeta=\zeta$ is real. If another zero $\zeta'$ of $T$ had $|\zeta'-\zeta|<\tau-8Kh$, its component would differ from $W$ and contain a zero $z''\ne z$ of $t_q(\cdot,E)$ with $|z''-z|<\tau$, which is excluded. So every other zero of $T$ is at distance at least $s:=\tau-8Kh\ge7\tau/8$ from $\zeta$.
+
+Write $T(x)=\sin\pi(x-\zeta)\,G(x)$. For real $x$ the function $G$ is real, and $G'/G=\pi\sum_{k\ge2}\cot\pi(x-\zeta_k)$. If $\dist(u,\Z)\ge s/2$, then $|\cot\pi u|\le1.01$ when $|\operatorname{Im}u|\ge1$, and $|\cot\pi u|\le\cosh\pi/(2\dist(u,\Z))\le11.6/s$ otherwise, by the bound in the proof of Lemma~\ref{lem:EF}(2). Hence $|G'/G|\le37(2K-1)/s$ for real $x$ with $|x-\zeta|\le s/2$. On $I_T=\{x\in\R:|x-\zeta|\le\rho_Ks\}$ we get $|\sin\pi(x-\zeta)|\,|G'/G|\le\pi/4$, $\pi\cos\pi(x-\zeta)\ge0.99\pi$ and $|G(x)|\ge e^{-1/4}|G(\zeta)|$. So $T'=G\,(\pi\cos\pi(x-\zeta)+\sin\pi(x-\zeta)\,G'/G)$ has the constant sign of $G$ and $|T'|\ge0.74\pi e^{-1/4}|G(\zeta)|\ge|T'(\zeta)|/2$ on $I_T$. By Lemma~\ref{lem:EF}(4) and $\mathsf g(\zeta-\zeta_k)\ge c_0s$,
+\[
+|T'(\zeta)|\ge\pi4^{K'}e^{m(T)}(c_0s)^{2K'-1}\ge\pi e^{q(\ell(E)-\eta)}(c_0\tau/2)^{2K-1}=4S_E.
+\]
+Since $|\partial_x(t_q-T)|\le2e^{-q}$ and $S_E\gg e^{-q}$, $\partial_xt_q(\cdot,E)$ has the sign of $T'$ and modulus at least $|T'(\zeta)|/4\ge S_E$ on $I_T$. Put $z_E=z$. Then $I_E\subset I_T$, because $\rho_K\tau/4+4Kh\le\rho_Ks$.
+
+Finally let $x\in S_0\setminus I_E$. Then $|x-\zeta|\ge\rho_K\tau/4-4Kh\ge\rho_K\tau/8$. Every other zero of $T$ is at distance at least $s-|x-\zeta|\ge7\tau/8-(\tau/16+\tau/2+4Kh)\ge\tau/4$ from $x$. So all zeros of $T$ are at distance at least $\rho_K\tau/8$ from $x$, and Lemma~\ref{lem:EF}(3) gives $|T(x)|\ge e^{q(\ell(E)-\eta)}(c_0\rho_K\tau/8)^{2K}=2\lambda_Ke^{q(\ell(E)-\eta)}\tau^{2K}$. Subtracting $e^{-q}$ gives the last claim of (ii). In Case~A the same bound holds, since $c_0\tau/4\ge c_0\rho_K\tau/8$.
+\end{proof}
+
+\begin{corollary}\label{cor:WXStoW}
+Let $\xi,\zeta>0$ and $0<\eps\le\min\{\zeta/(16K),\,a_0/4\}$. For all large $q$ and every $x_0\in\T\setminus B_q(\eps)$, (W) holds at $(q,x_0,e^{-2K\eps q})$ with these $\xi,\zeta$.
+\end{corollary}
+
+\begin{proof}
+Let $\sigma=\tau^{2K}=e^{-2K\eps q}$, so $e^{-\zeta q/4}\le\sigma\le1$. Apply Lemma~\ref{lem:NGe} with $\eta=\min\{\zeta,\gamma_J\}/2$, and let $E\in\mathcal N_q(\xi)\subset J_q$. A point $x$ with $|x-x_0|\le\sigma/16$ lies in $S_0$. In case (i), and in case (ii) for $x\notin I_E$, $|t_q(x,E)|\ge\lambda_Ke^{q(\ell(E)-\eta)}\tau^{2K}\ge\sigma^2e^{q(\ell(E)-\zeta)}$ for large $q$, since $\eta\le\zeta$ and $\tau^{2K}\to0$; so such $x$ do not lie in the set $Z_E$ of Definition~\ref{def:tI-W}. In case (i) therefore $Z_E=\emptyset$. In case (ii) every $x\in Z_E$ lies in $I_E$, where $t_q(\cdot,E)$ is monotone with slope at least $S_E$ and vanishes at $z_E$, so
+\[
+|x-z_E|\le\frac{|t_q(x,E)|}{S_E}<\frac{\sigma^2e^{q(\ell(E)-\zeta)}}{S_E}\le C_K\tau^{2K+1}\le\frac\sigma{16}
+\]
+for large $q$. Let $J_E=\{|x-z_E|\le\sigma/8\}$, an arc of length $\sigma/4$ centred at $z_E$. It lies in $I_E$ for large $q$, and on it $t_q(\cdot,E)$ is strictly monotone with $|\partial_xt_q|\ge S_E\ge\sigma e^{q(\ell(E)-\zeta)}$. This is (W).
+\end{proof}
+
+\subsection{The conditional law}\label{sec:CP}
+
+\begin{theorem}\label{thm:M2CP}
+Let $v$ be real analytic and $H_{v,\alpha}$ supercritical. Fix $c>0$, $0<d<B$, $\eps_{\mathrm{out}}>0$ and $m>0$, let $\xi,\zeta$ be as in Theorem~\ref{thm:tI-window} with $\eps_{\mathrm{out}}$ in place of $\eps$, and let $0<\eps\le\min\{\zeta/(16K),a_0/4\}$. There are $C$ and $n_1$ such that for every $n\ge n_1$ with $b_n\ge c$, every phase $\theta$ with $q_n\theta\bmod1\notin B_{q_n}(\eps)$, and every $T$ with $e^{dq_n}\le T\le e^{Bq_n}$,
+\[
+P(R_n(T),T)\le CT^{-m},\qquad R_n(T)=e^{\eps_{\mathrm{out}}q_n}\Bigl[1+\min\bigl(Te^{-\ell_*q_n},\,e^{(b_n-\ell_*)_+q_n}\bigr)\Bigr].
+\]
+\end{theorem}
+
+\begin{proof}
+By Corollary~\ref{cor:WXStoW}, (W) holds at $(q_n,q_n\theta,e^{-2K\eps q_n})$ for all large $n$, uniformly in $\theta$, and $e^{-2K\eps q_n}\ge e^{-\zeta q_n/4}$. Theorem~\ref{thm:tI-window}, which does not use the type~I hypothesis, applies.
+\end{proof}
+
+\begin{theorem}\label{thm:CP}
+Let $v$ be real analytic, $H_{v,\alpha}$ supercritical, and assume WXS$(v,\alpha)$. Put $\beta=\beta(\alpha)$.
+\begin{enumerate}
+\item If $\beta<\infty$, then for almost every $\theta$, $P(T^a,T)=O(T^{-m})$ for every $a>F_\beta(\ell_*)$ and $m>0$, and $\au(H_{v,\alpha,\theta})=F_\beta(\ell_*)$.
+\item If $\beta=0$ or $\beta=\infty$, then $\au(H_{v,\alpha,\theta})=F_\beta(\ell_*)$ for every $\theta$.
+\item $\au(H_{v,\alpha,\theta})\ge F_\beta(\ell_*)$ for every $\theta$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For $k\in\N$ let $G_k$ be the full-measure set of phases given by WXS$(v,\alpha)$ with $\eps=c=1/k$, and let $G=\bigcap_kG_k$. Fix $\theta\in G$ and $\beta<\infty$. Theorem~\ref{thm:tI-M1} gives (M1). For (M2$_{\ell_*}$), fix $c,d,B,\eps_{\mathrm{out}},m$, let $\eps$ be given by Theorem~\ref{thm:M2CP}, and choose $k$ with $1/k\le\min\{\eps,c\}$. Since $\theta\in G_k$, $q_n\theta\notin B_{q_n}(1/k)$ for all large $n$ with $b_n\ge1/k$, in particular for all large $n$ with $b_n\ge c$. Since $B_{q_n}(\cdot)$ decreases, $B_{q_n}(\eps)\subset B_{q_n}(1/k)$. So Theorem~\ref{thm:M2CP} applies at all large $n$ with $b_n\ge c$, which is (M2$_{\ell_*}$). Theorem~\ref{thm:covering} gives the upper bound in part~1. The lower bound in part~1 and part~3 for $0<\beta<\infty$ are Theorem~\ref{thm:L}, which applies because $\ell$ is continuous. For $\beta=0$ use Corollary~\ref{cor:tI-beta0}, which does not use the type~I hypothesis, and for $\beta=\infty$ use~\cite[Theorem~3(2)]{JZ2022} as in the proof of Theorem~\ref{thm:tI-law}.
+\end{proof}
+
+\begin{theorem}[The complete law under weak separation]\label{thm:complete}
+Let $v$ be real analytic with $L>0$ on its spectrum. Let $s\ge1$ be the greatest common divisor of the frequencies $k\ne0$ with $\hat v(k)\ne0$, and let $w$ be the real-analytic function with $v(x)=w(sx)$. If WXS$(w,s\alpha)$ holds, then for almost every $\theta$,
+\[
+\au(H_{v,\alpha,\theta})=F_{\beta(s\alpha)}(\ell_*),
+\]
+where $\ell_*$ is the minimum of the Lyapunov exponent on the spectrum. If $\beta(\alpha)\in\{0,\infty\}$, this holds for every $\theta$, without any hypothesis.
+\end{theorem}
+
+\begin{proof}
+A constant potential has zero Lyapunov exponent on its spectrum, so $v$ is not constant and $s$ is defined. By Theorem~\ref{thm:tI-NP} and its proof, $H_{v,\alpha,\theta}=H_{w,s\alpha,s\theta}$, and the two families have the same spectrum and the same Lyapunov exponent; so $H_{w,s\alpha}$ is supercritical with the same $\ell_*$. Theorem~\ref{thm:CP} applies to $(w,s\alpha)$ and gives a full-measure set $G$ of phases. The map $\theta\mapsto s\theta$ preserves Lebesgue measure, so $\{\theta:s\theta\in G\}$ has full measure. By Lemma~\ref{lem:tI-betas}, $\beta(s\alpha)\in\{0,\infty\}$ exactly when $\beta(\alpha)\in\{0,\infty\}$, and then Theorem~\ref{thm:CP}(2) needs no hypothesis.
+\end{proof}
+
+If $w$ is of type~I at the frequency $s\alpha$, the conclusion of Theorem~\ref{thm:complete} already follows from Theorem~\ref{thm:tI-NP}, without WXS. At every supercritical spectral energy the acceleration is a positive integer (proof of Lemma~\ref{lem:tI-T}). So WXS$(w,s\alpha)$ is the missing hypothesis exactly for the primitive potentials $w$ whose acceleration is at least two at some point of the spectrum.
+
+\begin{remark}[Why the primitive part]\label{rem:primitive}
+WXS$(v,\alpha)$ itself can fail when $v$ is not primitive. Let $v=w(s\cdot)$ with $s\ge2$, assume that $H_{w,s\alpha}$ is supercritical and of type~I, and assume that infinitely many convergent denominators $q_n$ of $\alpha$ are divisible by $s$ and satisfy $b_n\ge c$ for a fixed $c>0$. At such a scale, $q'=q_n/s$ is a convergent denominator of $s\alpha$ with the same $\delta_n$ (Proposition~\ref{prop:tI-cheb}), and $t^{(v)}_{q_n}=2T_s(t^{(w)}_{q'}/2)$. Let $\theta$ satisfy $s\theta\in G^w_{s\alpha}$, a full-measure condition, and let $x_0=q_n\theta=q'(s\theta)$, which is good for $w$ at scale $q'$. Let $E$ be a band centre of $w$ at the phase $x_0$; it lies within $Ce^{-b_nq_n/2}$ of $\Sigma$ by Lemma~\ref{lem:tI-loc}(1). By Lemma~\ref{lem:tI-Wgood} for $w$, $t^{(w)}_{q'}(\cdot,E)$ is monotone near $x_0$ with slope at least $q'^{-3}e^{q'(\ell(E)-\zeta)}$, so it takes the $s$ values $2\cos((2j-1)\pi/(2s))$ at $s$ distinct real points within $4q'^3e^{-q'(\ell(E)-\zeta)}$ of $x_0$. These are zeros of $t^{(v)}_{q_n}(\cdot,E)$. Hence $q_n\theta\in B_{q_n}(\eps)$ for every $\eps<\ell_*/(2s)$ at all large such $n$, and WXS$(v,\alpha)$ fails. This failure needs the resonant scales: if $\beta(\alpha)=0$, WXS holds trivially for every potential. It also does not locate a change of the exponent, since WXS$(v,\alpha)$ can fail while both $F_{\beta(\alpha)}(\ell_*)$ and $F_{\beta(s\alpha)}(\ell_*)$ vanish.
+\end{remark}
+
+\subsection{An explicit two-harmonic family}\label{sec:twoharmonic}
+
+Let
+\[
+v(x)=2\lambda\cos2\pi x+2\mu\cos4\pi x,\qquad\lambda\ne0,\ \mu\ne0,
+\]
+and assume that $H_{v,\alpha}$ is supercritical. This potential is primitive and even. By Lemma~\ref{lem:trigpot} and the evenness of $t_q$ (Section~\ref{sec:tI-disc}),
+\[
+t_q(x,E)=P_q(E)+2C_q(E)\cos2\pi x+2B_q\cos4\pi x,\qquad B_q=(-\mu)^q,
+\]
+with real polynomials $P_q$ of degree $q$ and $C_q$ of degree at most $q-1$. With $c=\cos2\pi x$, $t_q=4B_qc^2+2C_qc+(P_q-2B_q)$, whose roots in $c$ are $c_\pm=\bar c_q\pm\frac12\sqrt{\tilde\Delta_q}$, where
+\[
+\bar c_q(E)=-\frac{C_q(E)}{4B_q},\qquad\tilde\Delta_q(E)=\Bigl(\frac{C_q(E)}{2B_q}\Bigr)^2-\frac{P_q(E)-2B_q}{B_q}=(c_+-c_-)^2 .
+\]
+The four phase zeros of $t_q(\cdot,E)$ are $\pm x_+$ and $\pm x_-$, with $\cos2\pi x_\pm=c_\pm$. The polynomial $\tilde\Delta_q$, of degree at most $2q$, measures how far $t_q$ is from a perfect square in $\cos2\pi x$.
+
+\begin{definition}\label{def:EDelta}
+We say that \emph{(E-$\Delta$) holds} if for every $c>0$ and every $\eps>0$ there is $\eps'>0$ such that for all large $n$ with $b_n\ge c$,
+\[
+\bigl|\bigl\{E\in J:\ |\tilde\Delta_{q_n}(E)|\le e^{-\eps q_n},\ |\bar c_{q_n}(E)|\le2\bigr\}\bigr|\le e^{-\eps'q_n}.
+\]
+\end{definition}
+
+\begin{proposition}\label{prop:EDelta}
+For the family above, (E-$\Delta$) implies WXS$(v,\alpha)$. Consequently, under (E-$\Delta$), $\au(H_{v,\alpha,\theta})=F_{\beta(\alpha)}(\ell_*)$ for almost every $\theta$.
+\end{proposition}
+
+\begin{proof}
+Fix $c,\eps>0$, let $q=q_n$ with $b_n\ge c$ be large, $\tau=e^{-\eps q}$, and let $x_0\in B_q(\eps)$, with witnesses $E\in J_q$ and entries $z,z'$ of $Z_q(E)$. The entries are two of the four zeros $\pm x_\pm$.
+
+\emph{Mirror pairs.} If $\{z,z'\}=\{x_+,-x_+\}$ or $\{x_-,-x_-\}$, then $\dist(2z,\Z)=|z-z'|<\tau$, so $z$ is within $\tau/2$ of $\{0,\frac12\}$ and $x_0$ is within $2\tau$ of $\{0,\frac12\}$. These phases form a set of measure at most $8\tau$.
+
+\emph{Cross pairs.} Otherwise $\cos2\pi z=c_+$ and $\cos2\pi z'=c_-$, or the reverse. Since $|\operatorname{Im}z|<\tau$ and $|\operatorname{Im}z'|<2\tau$, the derivative of $\cos2\pi\cdot$ is at most $2\pi\cosh4\pi\tau$ on the segment between them, so $|c_+-c_-|\le7\tau$ for large $q$. Hence $|\tilde\Delta_q(E)|\le49\tau^2\le e^{-\eps q}$, $|\cos2\pi x_0-\bar c_q(E)|\le|\cos2\pi x_0-\cos2\pi z|+|c_+-c_-|/2\le11\tau$, and $|\bar c_q(E)|\le2$. So $E$ lies in
+\[
+E_{\mathrm{bad}}=\{E\in J:|\tilde\Delta_q(E)|\le e^{-\eps q},\ |\bar c_q(E)|\le2\},
+\]
+and $\cos2\pi x_0$ lies in the $11\tau$-neighbourhood $S'$ of $S=\bar c_q(E_{\mathrm{bad}})$.
+
+\emph{The set $S$.} Since $\tilde\Delta_q$ and $\bar c_q$ are real polynomials of degrees at most $2q$ and $q-1$, $E_{\mathrm{bad}}$ is a union of at most $3q+2$ intervals. On $E_{\mathrm{bad}}$ the roots satisfy $|c_\pm|\le2+e^{-\eps q/2}/2\le2.5$, so the four phase zeros have $|\operatorname{Im}x|\le\operatorname{arsinh}(2.5)/(2\pi)\le0.3$. By Lemma~\ref{lem:EF}(2), with $|c_{q,\pm2}|=|\mu|^q$, $m(t_q(\cdot,E))\le q\log|\mu|+1.2\pi\le q\log|\mu|+3.8$. Let $\eta,\zeta>0$. Lemma~\ref{lem:LB} gives $\ell(E)\le\log|\mu|+\eta+3.8/q$ on $E_{\mathrm{bad}}$, for large $q$. Since $C_q=(t_q(0,\cdot)-t_q(\frac12,\cdot))/4$, \eqref{eq:UB} gives $|\bar c_q'(E)|=|C_q'(E)|/(4|\mu|^q)\le Cqe^{(\eta+\zeta)q}$ on $E_{\mathrm{bad}}$. Integrating over each component, $S$ is a union of at most $3q+2$ intervals with $|S|\le Cqe^{(\eta+\zeta)q}|E_{\mathrm{bad}}|$, and $|S'|\le|S|+22\tau(3q+2)$.
+
+\emph{Measure of the bad phases.} For $0<r\le1$, the set $\{x\in\T:|\sin2\pi x|<r\}$ has measure at most $4r$. On its complement, $x\mapsto\cos2\pi x$ is at most two-to-one with derivative of modulus at least $2\pi r$, so $\{x:\cos2\pi x\in S',\ |\sin2\pi x|\ge r\}$ has measure at most $|S'|/(\pi r)$. Altogether
+\[
+|B_q(\eps)|\le8\tau+4r+\frac1{\pi r}\Bigl[Cqe^{(\eta+\zeta)q}|E_{\mathrm{bad}}|+22\tau(3q+2)\Bigr].
+\]
+Let $\eps'$ be given by (E-$\Delta$) for $c$ and $\eps$; decreasing it, we may assume $\eps'<2\eps$. Take $r=e^{-\eps'q/2}$ and $\eta+\zeta<\eps'/4$. Every term is at most $Cqe^{-c'q}$ with $c'=\min\{\eps'/4,\eps-\eps'/2\}>0$. Since $\sum_nq_ne^{-c'q_n}<\infty$, the Borel--Cantelli lemma gives WXS$(v,\alpha)$. The last statement is Theorem~\ref{thm:CP}.
+\end{proof}
+
+For the non-primitive member $\lambda=0$ and even $q$, the Chebyshev identity of Proposition~\ref{prop:tI-cheb} gives exactly $\tilde\Delta_q=2/\mu^q$, which is exponentially small when $|\mu|>1$; this is the structural clustering of Remark~\ref{rem:primitive}. Whether (E-$\Delta$) holds for $\lambda\ne0$ is open.
+
+\begin{remark}[Numerical observations]\label{rem:numerics}
+The following finite computations are not used in any proof. For the family above with $\mu=1.8$, $\lambda\in\{0.6,\,0.02\}$ and the frequency $161/242$, and with $\lambda=0.6$ and the frequency $321/482$, we computed, at $32$, $32$ and $16$ equally spaced phases respectively and for each of the two lowest bands, the band centres, their slopes, the four phase zeros and the loss $\Phi$ of Remark~\ref{rem:bandproduct}, in arithmetic with $100$ decimal digits. All phase zeros were real. The vertical gaps between the two lowest band centres were as small as $4.0\cdot10^{-12}$, $1.1\cdot10^{-11}$ and $3.6\cdot10^{-21}$, and the slopes $|E_b'|$ at most $3.1\cdot10^{-10}$, $7.9\cdot10^{-10}$ and $9.3\cdot10^{-20}$. Yet the largest loss $\Phi$ was $4.48$, $3.69$ and $3.54$, and the smallest distance between two phase zeros was $0.0085$, $0.0098$ and $0.0098$. The identity of Remark~\ref{rem:bandproduct} held to a relative error below $10^{-76}$. These are observations at finitely many phases of two rational frequencies, which belong to the sequence $(2k+1)/(3k+2)$ converging to the rational number $2/3$, not to the convergents of a fixed irrational frequency. At these samples the tiny vertical gaps did not produce horizontal clusters. They say nothing about the behaviour along the convergents of a fixed irrational frequency. Whether exponentially small vertical gaps recur, at a positive exponential rate, along the convergents of a fixed irrational frequency, and what they then do to the horizontal separation, is part of the open question of WXS.
+\end{remark}

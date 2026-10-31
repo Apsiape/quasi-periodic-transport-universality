@@ -1,0 +1,119 @@
+\section{Introduction}\label{sec:intro}
+
+Consider a one-frequency quasi-periodic Schr\"odinger operator on $\ell^2(\Z)$,
+\begin{equation}\label{eq:qp}
+(H_{v,\alpha,\theta}u)(n)=u(n+1)+u(n-1)+v(\theta+n\alpha)\,u(n),
+\end{equation}
+with a real-analytic sampling function $v$ on $\T=\R/\Z$, an irrational frequency $\alpha$ and a phase $\theta\in\T$. The best-known example is the almost Mathieu operator, $v(x)=2\lambda\cos2\pi x$, known to physicists as the Aubry--Andr\'e model~\cite{AubryAndre1980} and realized with cold atoms in bichromatic optical lattices~\cite{Roati2008} and with light in quasi-periodic waveguide arrays~\cite{Lahini2009}. When the Lyapunov exponent is positive on the spectrum, the folklore physical picture is that every state is localized.
+
+That picture depends on the arithmetic of $\alpha$. Let $p_n/q_n$ be the continued-fraction convergents of $\alpha$ and
+\begin{equation}\label{eq:beta}
+\beta(\alpha)=\limsup_{n\to\infty}\frac{\log q_{n+1}}{q_n}\in[0,\infty].
+\end{equation}
+Avila, You and Zhou~\cite{AYZ2017} proved that the almost Mathieu operator with $\lambda>1$ has Anderson localization for almost every phase when $\lambda>e^{\beta(\alpha)}$, and purely singular continuous spectrum for every phase when $1<\lambda<e^{\beta(\alpha)}$. Ge and Jitomirskaya extended sharp arithmetic transitions of this kind to supercritical operators of type~I~\cite{GeJitomirskaya2024}, a class defined through Avila's global theory~\cite{Avila2015}. Strongly Liouville frequencies thus destroy localization even though the Lyapunov exponent stays positive.
+
+What does a wave packet do in that regime? This paper answers the question for every supercritical type~I analytic potential, with one formula. Three points summarize the answer.
+\begin{itemize}
+\item Transport is a competition between two exponential rates, the localization strength $L$ and the Liouville strength $\beta(\alpha)$, and its exponent is $\max\{0,1-L/\beta(\alpha)\}$.
+\item The law is universal and local in energy. The acceleration does not enter; the farthest tails are set by the smallest Lyapunov exponent, every moment follows the same law, and the part of the packet at energy $E$ spreads with exponent $\max\{0,1-L(E)/\beta(\alpha)\}$.
+\item Beyond type~I, the fastest-tail law follows from a single geometric hypothesis on the zeros of rational discriminants, which we isolate exactly.
+\end{itemize}
+
+\subsection{The transport exponent}
+
+Let $\psi_t=e^{-itH}\delta_0$ and average in time with the exponential weight $(2/T)e^{-2t/T}$:
+\begin{equation}\label{eq:abel}
+a(j,T)=\frac2T\int_0^\infty e^{-2t/T}\,|\langle\delta_j,\psi_t\rangle|^2\,dt,\qquad
+P(N,T)=\sum_{|j|>N}a(j,T),\qquad M_p(T)=\sum_{j\in\Z}|j|^p a(j,T).
+\end{equation}
+$P(N,T)$ is the time-averaged probability of finding the particle beyond distance $N$, and $M_p(T)$ is the averaged $p$-th moment of the position. The upper transport exponents are
+\begin{equation}\label{eq:exponents}
+\beta^+(p)=\limsup_{T\to\infty}\frac{\log M_p(T)}{p\log T},\qquad
+\au=\sup_{p>0}\beta^+(p).
+\end{equation}
+The quantity $\au$ is the fastest upper exponent of Damanik and Tcheremchantsev~\cite{DT2007}. It sees even polynomially small tails: $\au\le a$ holds when $P(T^a,T)$ decays faster than every power of $T$ (Lemma~\ref{lem:moments}), and a tail of size $T^{-C}$ at distance $T^{a}$ already forces $\au\ge a$. Always $0\le\beta^+(p)\le\au\le1$, since hopping is bounded. For $0<\beta<\infty$ we write
+\[
+F_\beta(\ell)=\max\Bigl\{0,\ 1-\frac{\ell}{\beta}\Bigr\},
+\]
+with $F_0\equiv0$ and $F_\infty\equiv1$.
+
+\subsection{Main results}
+
+Write $L(E)$ for the Lyapunov exponent of $H_{v,\alpha,\theta}$ at energy $E$ and $\Sigma$ for its spectrum, which does not depend on $\theta$. Following Avila~\cite{Avila2015}, an energy is \emph{supercritical} if $L(E)>0$. The acceleration of $E$ is the right derivative at $y=0$ of $y\mapsto L(E,y)/(2\pi)$, where $L(E,y)$ is the Lyapunov exponent of the cocycle with phase complexified by $iy$; it is a positive integer at supercritical spectral energies. Following Ge and Jitomirskaya~\cite{GeJitomirskaya2024}, a supercritical energy is \emph{of type~I} if its acceleration is one (Section~\ref{sec:typeI} recalls the precise definition). The almost Mathieu operator with $\lambda>1$ is supercritical and of type~I at every spectral energy~\cite{Avila2015}, and so is every sufficiently small analytic perturbation of it.
+
+\begin{maintheorem}[The transport law]\label{thm:A}
+Let $v$ be real-analytic and $\alpha$ irrational, and assume that every energy in $\Sigma$ is supercritical and of type~I. Let $\ell_*=\min_{E\in\Sigma}L(E)>0$.
+\begin{enumerate}
+\item If $\beta(\alpha)<\infty$, then for every $\theta$ in a set $G^v_\alpha$ of full measure,
+\[
+\au(H_{v,\alpha,\theta})=\max\Bigl\{0,\ 1-\frac{\ell_*}{\beta(\alpha)}\Bigr\},
+\]
+read as $0$ when $\beta(\alpha)=0$, and $P(T^a,T)=O(T^{-m})$ for every $a>F_{\beta(\alpha)}(\ell_*)$ and $m>0$. When $v$ is even, $G^v_\alpha$ contains the explicit set $\Ga$ of~\eqref{eq:Ga}. When $\beta(\alpha)=0$ the equality holds for every phase.
+\item If $\beta(\alpha)=\infty$, then $\au=1$ for every phase.
+\end{enumerate}
+The lower bound $\au\ge1-\ell_*/\beta(\alpha)$ holds for every phase.
+\end{maintheorem}
+
+The set $G^v_\alpha$ is explicit (Definition~\ref{def:tI-good}): it consists of the phases $\theta$ for which $q_n\theta$ stays at distance at least $2q_n^{-3}$ from the turning points of the band centres of the $p_n/q_n$-periodic approximants, for all large $n$. The exponent vanishes when $\beta(\alpha)\le\ell_*$, including the threshold itself. When $\beta(\alpha)>0$ it grows to $1$ as $\ell_*\downarrow0$; when $\beta(\alpha)=0$ it vanishes. For the almost Mathieu operator the threshold $\beta(\alpha)=\log\lambda$ is the arithmetic spectral transition of Avila, You and Zhou.
+
+The formula has a simple heuristic origin. At a resonant scale $q=q_n$ the potential is almost $q$-periodic, with a slow drift of size $|q\alpha-p|^{-1}\approx e^{\beta q}$ in space. On that scale the packet moves like a particle in a nearly periodic band of width about $e^{-L(E)q}$, so its speed is about $e^{-L(E)q}$. The slow drift turns this into a Bloch-type oscillation that lasts for a time about $T=e^{\beta q}$. In that time the packet covers a distance about $Te^{-L(E)q}=T^{1-L(E)/\beta}$. The fastest spreading comes from the energies with the smallest Lyapunov exponent. The theorems show that no other mechanism moves any polynomial fraction of the packet faster, at any time.
+
+\begin{remark}[The almost Mathieu operator]\label{rem:amo}
+For $v(x)=2\lambda\cos2\pi x$ with $\lambda>1$, Theorem~\ref{thm:A} applies with $\ell_*=\log\lambda$ and gives $\au=\max\{0,1-\log\lambda/\beta(\alpha)\}$ for every $\theta\in\Ga$. The companion paper~\cite{DMamo} proves this special case independently, by an elementary route built on an exactly conserved quantity: at each denominator $q$, a degree-$q$ polynomial of $H$ is a slowly varying diagonal plus an operator of range $q$. It also determines every moment and the packing dimension of every spectral measure of the almost Mathieu operator, and it shows that the transport exponent can be noncomputable.
+\end{remark}
+
+The next theorem extends the law from the fastest tails to every moment, and resolves it in energy. Let $\mu_\theta$ be the spectral measure of $\delta_0$, and let $\ell_\theta\ge\ell_*$ and $\ell^\theta$ be the minimum and the maximum of $L$ on its support. For a finite measure $\mu$ the upper local dimension is $d^+_\mu(E)=\limsup_{r\to0}\log\mu([E-r,E+r])/\log r$, and the upper and lower packing dimensions $\dim_P^\pm(\mu)$ are its $\mu$-essential supremum and infimum.
+
+\begin{maintheorem}[Every moment, energy by energy]\label{thm:B}
+Assume the hypotheses of Theorem~\ref{thm:A} with $0<\beta(\alpha)<\infty$, write $\beta=\beta(\alpha)$, and let $\theta\in G^v_\alpha$.
+\begin{enumerate}
+\item For every $p>0$, $\beta^+(p)=F_\beta(\ell_*)$. If $\ell_*<\beta$, then $L$ attains $\ell_*$ on $\supp\mu_\theta$, and for every $\gamma>0$ a fixed positive fraction of the packet lies beyond distance $e^{(b_n-\ell_*-\gamma)q_n}$ at the times $T_n=|q_n\alpha-p_n|^{-1}$, for all large $n$ with $b_n=q_n^{-1}\log T_n\ge\ell_*+15\gamma$.
+\item Let $E_0\in\Sigma$, $0<\gamma<\ell_*/2$, and let $g\in C_c^\infty(\R)$ be real, supported in $\{E:|L(E)-L(E_0)|<\gamma\}$, with $g(H)\delta_0\ne0$. Then the packet started at $g(H)\delta_0$ satisfies, for every $p>0$,
+\[
+F_\beta\bigl(L(E_0)+\gamma\bigr)\le\beta^+_{g(H)\delta_0}(p)\le F_\beta\bigl(L(E_0)-\gamma\bigr).
+\]
+\item $d^+_{\mu_\theta}(E)=F_\beta(L(E))$ for $\mu_\theta$-almost every $E$. Consequently $\dim_P^+(\mu_\theta)=F_\beta(\ell_\theta)$ and $\dim_P^-(\mu_\theta)=F_\beta(\ell^\theta)$.
+\end{enumerate}
+\end{maintheorem}
+
+Part~1 says that, at every phase of $G^v_\alpha$, the fastest-tail exponent and every upper moment exponent coincide, and that the critical distance is reached by a fixed fraction of the packet, not only by a polynomially small tail. Part~2 says that a packet filtered near an energy $E$ spreads, in every moment, with exponent $F_\beta(L(E))$, in the limit of narrow filters. Part~3 is its spectral counterpart: the upper local dimension of the spectral measure is an explicit function of the energy. It is nonconstant, and the two packing dimensions differ, as soon as $\ell_*<\beta$ and $L$ is not constant on $\supp\mu_\theta$. For $\theta\in G^v_\alpha\cap(G^v_\alpha-\alpha)$ every nonzero spectral measure $\mu_\varphi$ satisfies $d^+_{\mu_\varphi}=F_\beta\circ L$ almost everywhere, so $\dim_P^+(\mu_\varphi)\le F_\beta(\ell_*)$ (Corollary~\ref{cor:allmeasures}). For frequencies with $\beta(\alpha)>\max_\Sigma L$, lower bounds of the form in parts~1 and~3 hold at every phase for every Lipschitz potential whose Lyapunov exponent is continuous on the spectrum (Theorem~\ref{thm:U1}).
+
+The type~I hypothesis singles out the correct frequency. If $v(x)=w(sx)$ for an integer $s\ge2$, then $v(\theta+n\alpha)=w(s\theta+ns\alpha)$, so $H_{v,\alpha,\theta}=H_{w,s\alpha,s\theta}$: the operator is really driven by the frequency $s\alpha$, and $\beta(s\alpha)$ can differ from $\beta(\alpha)$. Such a $v$ has acceleration at least $s$ and is never of type~I.
+
+\begin{maintheorem}[Covariance]\label{thm:Cov}
+Let $v$ be real-analytic and nonconstant, let $s$ be the greatest common divisor of the frequencies $k\ne0$ with $\hat v(k)\ne0$, and write $v(x)=w(sx)$. If $H_{w,s\alpha}$ is supercritical and of type~I, then for almost every $\theta$,
+\[
+\au(H_{v,\alpha,\theta})=\max\Bigl\{0,\ 1-\frac{\ell_*}{\beta(s\alpha)}\Bigr\},
+\]
+read as $0$ when $\beta(s\alpha)=0$, and for every $\theta$ if $\beta(\alpha)\in\{0,\infty\}$. Moreover $\beta(\alpha)\le\beta(s\alpha)\le s\beta(\alpha)$.
+\end{maintheorem}
+
+If the primitive part $w$ has acceleration at least two somewhere on the spectrum of $H_{w,s\alpha}$, then $H_{w,s\alpha}$ is not of type~I and Theorem~\ref{thm:Cov} does not apply. For them the rational discriminant, as a function of the phase at a fixed energy, can have several zeros near the real axis, and the zeros can cluster. Our last result shows that excluding such clusters is the only input our argument still needs. For a convergent $p/q$ let $t_q(x,E)$ be the trace of the transfer matrix over one period of the $p/q$-periodic approximant at the phase $x/q$. We say that WXS$(v,\alpha)$ holds (weak separation) if for every $\eps>0$ and $c>0$, for almost every $\theta$ and all large $n$ with $q_n^{-1}\log|q_n\alpha-p_n|^{-1}\ge c$, no energy within $1/q_n$ of the spectrum has two zeros of $t_{q_n}(\cdot,E)$, real or complex and counted with multiplicity, within $e^{-\eps q_n}$ of each other with one of them within $e^{-\eps q_n}$ of $q_n\theta$ (Definition~\ref{def:WXS}).
+
+\begin{maintheorem}[A conditional complete law]\label{thm:D}
+Let $v$ be real-analytic with positive Lyapunov exponent on its spectrum, and write $v(x)=w(sx)$ as in Theorem~\ref{thm:Cov}. If WXS$(w,s\alpha)$ holds, then for almost every $\theta$,
+\[
+\au(H_{v,\alpha,\theta})=\max\Bigl\{0,\ 1-\frac{\ell_*}{\beta(s\alpha)}\Bigr\},
+\]
+read as $0$ when $\beta(s\alpha)=0$, where $\ell_*$ is the minimum of the Lyapunov exponent on the spectrum.
+\end{maintheorem}
+
+By Theorems~\ref{thm:A} and~\ref{thm:Cov}, the hypothesis is needed only when the primitive part $w$ has acceleration at least two at some point of the spectrum. For real-analytic potentials with positive Lyapunov exponent on the spectrum, the transport law is therefore reduced to one precise open hypothesis: \emph{WXS for primitive potentials with acceleration at least two.} We do not know whether it holds. For the two-harmonic family $2\lambda\cos2\pi x+2\mu\cos4\pi x$ we reduce it further to a large-deviation estimate, (E-$\Delta$), for the measure of the energies at which one explicit polynomial of degree at most $2q$ is exponentially small (Proposition~\ref{prop:EDelta}). The hypothesis must be imposed on the primitive part: for non-primitive potentials it can fail by symmetry alone (Remark~\ref{rem:primitive}).
+
+\subsection{Relation to earlier work}
+
+For the almost Mathieu operator two endpoints were known. Damanik and Tcheremchantsev proved $\au=0$ for $\lambda>1$ when $\beta(\alpha)=0$~\cite{DT2007}, and Jitomirskaya and Zhang proved $\au=1$ for every phase when $\beta(\alpha)=\infty$~\cite{JZ2022}. Jitomirskaya and Kr\"uger proved exponential dynamical localization in phase expectation when $\beta(\alpha)$ is sufficiently small, including positive values~\cite{JK2013}, and Bradshaw, de Jong, Liu, Wang, Wang and Yang refined the growth rates for weakly Liouville frequencies with $\beta(\alpha)=0$~\cite{BdJLWWY2025}. In between, lower bounds of the form $1-C\log\lambda/\beta$ were obtained by Jitomirskaya and Zhang and by Haeming~\cite{JZ2022,Haeming2025}, and upper bounds on fractal dimensions of spectral measures near the transition by Jitomirskaya, Liu and Tcheremchantsev~\cite{JLT2025}; Levi extended their packing and generalized-dimension bounds, with the same factor two, to potentials that are monotone on the period~\cite[Theorems~1.1 and~1.3]{Levi2025}. Haeming also proved lower bounds for every moment, at every phase and along sequences of times, with exponent $1-d$ when $\beta(\alpha)>3\ell_*/d$ and $0<d<1/2$~\cite[Theorem~1.1]{Haeming2025}. The exact value of $\au$ for finite positive $\beta(\alpha)>\log\lambda$ was not known even for the almost Mathieu operator; the companion paper~\cite{DMamo} determines it. Here we treat general supercritical analytic potentials. For them the endpoint $\beta(\alpha)=0$ was observed by Jitomirskaya and Mavi~\cite[Remark~1.12]{JitomirskayaMavi2017}. The structural inputs are Avila's global theory~\cite{Avila2015}, the type~I class of Ge and Jitomirskaya~\cite{GeJitomirskaya2024}, the finite harmonic structure of rational discriminants of Jitomirskaya and Marx~\cite{JitomirskayaMarx2012} and Shamis~\cite{Shamis2011}, and, for the spectral consequences, the inequality of Barbaroux, Germinet and Tcheremchantsev between transport and generalized dimensions~\cite{BGT2000}.
+
+\subsection{How the proofs work}
+
+\emph{The lower bound} (Section~\ref{sec:lower}) constructs, at a resonant scale $q=q_n$ and for any $h$ slightly above $\ell_*$, a band of energies on which complex-energy transfer matrices stay bounded by $e^{2hq}$ over a distance $e^{(b_n-h)q+O(\log q)}$. It applies to any Lipschitz sampling function whose Lyapunov exponent is continuous near a spectral minimizer.
+
+\emph{The upper bound} has two layers. The outer layer (Section~\ref{sec:covering}) is a covering argument that works for any potential. It reduces the upper bound to two estimates about the operator. The first, (M1), confines the packet to distance $O(q_n)$ up to times $e^{\kappa q_n}$ at every denominator; it comes from the complex-energy method of Damanik and Tcheremchantsev~\cite{DT2007}. The second, (M2), describes the motion at a scale where $|q_n\alpha-p_n|$ is exponentially small: speed $e^{-\ell_*q_n}$, up to a stopping radius. The inner layer (Section~\ref{sec:typeI}) proves (M2) without any conserved operator. Its single object is the resolvent vector at a fixed complex energy, which satisfies an exact $q$-step recursion whose coefficient is the rational discriminant at the local phase, with an error controlled by the Lyapunov exponent at that energy. Where the discriminant is large the recursion forces decay; where it is small its imaginary part has a fixed sign, and a weighted estimate bounds the speed. The type~I hypothesis enters only through the geometry of the zeros of the discriminant near the phase of the initial site.
+
+\emph{Every moment} (Section~\ref{sec:moments}). Two new ingredients give a fixed fraction of the packet, not a polynomially small one, at the critical distance. First, an arcsine law: at resonant scales, the rational discriminant evaluated along the spectral measure is distributed like the discriminant of a periodic operator, whose law is exactly the arcsine law by the periodic magic formula of Damanik, Killip and Simon~\cite{DKS2010}. Second, an elliptic run: at an energy where the transfer matrix over one period is elliptic with a margin, and at the damping $\operatorname{Im}z=|q_n\alpha-p_n|$, the Weyl solution keeps its size, in a frame that follows the slowly drifting periods, over at least $e^{(b_n-h)q_n}$ sites for every $h>L(E)$, and a flux identity controls everything beyond the run. A Taylor expansion of energy filters localizes both statements in energy, and the window estimate of Section~\ref{sec:typeI} makes the arcsine law local.
+
+\emph{Beyond type~I} (Section~\ref{sec:beyond}). The rational discriminant of an analytic potential is, up to an exponentially small error, a trigonometric polynomial of fixed degree in the phase. Its exact factorization over its zeros shows that the window estimate needs only weak separation of the zeros near the drifting phase.
+
+\subsection{Organization}
+
+Section~\ref{sec:prelim} fixes notation and collects elementary facts. Section~\ref{sec:covering} states (M1) and (M2) and proves the covering theorem. Section~\ref{sec:lower} proves the lower bound. Section~\ref{sec:typeI} treats supercritical type~I potentials and proves Theorems~\ref{thm:A} and~\ref{thm:Cov}. Section~\ref{sec:moments} proves Theorem~\ref{thm:B}. Section~\ref{sec:beyond} proves Theorem~\ref{thm:D} and treats the two-harmonic family. Section~\ref{sec:discussion} discusses open problems.

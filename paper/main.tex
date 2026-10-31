@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\hypersetup{pdftitle={Universality of the transport law for supercritical quasi-periodic operators},pdfauthor={Seth Douglas and Nidhal Mghirbi}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\T}{\mathbb T}
+\newcommand{\un}{\mathbf 1}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\Ga}{G_\alpha}
+\newcommand{\au}{\alpha_u^+}
+\newcommand{\eps}{\varepsilon}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{maintheorem}{Theorem}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\newtheorem{maincorollary}[maintheorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+\title{Universality of the transport law for\\ supercritical quasi-periodic operators\thanks{The authors developed this work with AI models from more than one developer and take responsibility for every claim. How the work was done is described at the end of the paper.}}
+\author{Seth Douglas \and Nidhal Mghirbi}
+\date{Version 1.0.0, October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We determine how fast wave packets spread under quasi-periodic Schr\"odinger operators $(Hu)(n)=u(n+1)+u(n-1)+v(\theta+n\alpha)u(n)$ with real-analytic $v$ and positive Lyapunov exponent $L$ on the spectrum. Let $\beta(\alpha)=\limsup_n q_n^{-1}\log q_{n+1}$, let $\ell_*$ be the minimum of $L$ on the spectrum, and put $F(\ell)=\max\{0,1-\ell/\beta(\alpha)\}$, with $F\equiv0$ if $\beta(\alpha)=0$ and $F\equiv1$ if $\beta(\alpha)=\infty$. If $v$ is of type~I in the sense of Avila and of Ge and Jitomirskaya, then for almost every phase the fastest transport exponent $\alpha_u^+$ and the exponent of every moment, both upper and Abel-averaged, equal $F(\ell_*)$; the lower bound for $\alpha_u^+$ holds for every phase. The law also holds energy by energy: for packets filtered ever more narrowly near an energy $E$ of the spectrum, every moment exponent tends to $F(L(E))$, and the spectral measure has upper local dimension $F(L(E))$ at almost every $E$. These conclusions extend to $v(x)=w(sx)$, with $\beta(s\alpha)$ in place of $\beta(\alpha)$, when $w$ at frequency $s\alpha$ is supercritical and of type~I. Beyond type~I, we show, conditionally on one hypothesis, that every real-analytic potential with positive Lyapunov exponent on its spectrum has $\alpha_u^+=F(\ell_*)$, computed with $\beta(s\alpha)$, for almost every phase, where $s$ is the period reduction of the potential. The hypothesis: at fixed energy, the zeros of the rational discriminants of its primitive part, as functions of the phase, do not cluster at an exponential rate near the drifting phase. The fastest-transport law for analytic potentials is thereby reduced to this weak separation hypothesis for primitive potentials with acceleration at least two. The proofs combine a covering argument over all times, an exact $q$-step resolvent identity, elliptic runs of Weyl solutions, and an arcsine law for the rational discriminant.
+\end{abstract}
+
+{\small\tableofcontents}
+
+\input{intro}
+\input{prelim}
+\input{covering}
+\input{lower}
+\input{general}
+\input{moments}
+\input{beyond}
+\input{discussion}
+
+\bibliographystyle{plainurl}
+\bibliography{references}
+\end{document}
