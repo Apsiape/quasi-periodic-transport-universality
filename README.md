@@ -2,7 +2,7 @@
 
 Seth Douglas and Nidhal Mghirbi
 
-Version 1.0.1, November 2026. Version 1.0.0: [10.5281/zenodo.23830333](https://doi.org/10.5281/zenodo.23830333). Concept DOI (all versions): [10.5281/zenodo.23830332](https://doi.org/10.5281/zenodo.23830332). A preprint; it has not been peer reviewed.
+Version 1.0.1, November 2026. DOI: [10.5281/zenodo.23890268](https://doi.org/10.5281/zenodo.23890268). Version 1.0.0: [10.5281/zenodo.23830333](https://doi.org/10.5281/zenodo.23830333). Concept DOI (all versions): [10.5281/zenodo.23830332](https://doi.org/10.5281/zenodo.23830332). A preprint; it has not been peer reviewed.
 
 ## Abstract
 
